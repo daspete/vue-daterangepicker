@@ -1,0 +1,39 @@
+$calendarCellDimension: 30px;
+
+.calendar {
+    width: $calendarCellDimension * 7;
+    height: $calendarCellDimension * 6;
+}
+
+.calendar-label {
+    display: block;
+    float:left;
+    width: $calendarCellDimension;
+    height: $calendarCellDimension;
+    overflow: hidden;
+}
+
+.calendar-day {
+    display: block;
+    float:left;
+    width: $calendarCellDimension;
+    height: $calendarCellDimension;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #eee;
+    font-size: 10px;
+    cursor: pointer;
+
+    &.inactive {
+        border: 1px solid #eee;
+        background-color: #fff;
+        color: #777;
+        cursor: not-allowed;
+    }
+
+    &.invisible {
+        border: 1px solid rgba(0,0,0,0);
+        background-color: transparent;
+        cursor: default;
+    }
+}

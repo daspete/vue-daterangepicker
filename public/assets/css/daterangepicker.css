@@ -1,0 +1,38 @@
+.calendar {
+  width: 210px;
+  height: 180px;
+}
+
+.calendar-label {
+  display: block;
+  float: left;
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+}
+
+.calendar-day {
+  display: block;
+  float: left;
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #eee;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.calendar-day.inactive {
+  border: 1px solid #eee;
+  background-color: #fff;
+  color: #777;
+  cursor: not-allowed;
+}
+
+.calendar-day.invisible {
+  border: 1px solid transparent;
+  background-color: transparent;
+  cursor: default;
+}
+
