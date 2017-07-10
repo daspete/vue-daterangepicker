@@ -1,14 +1,19 @@
-.calendar {
-  width: 210px;
-  height: 180px;
-}
-
 .calendar-label {
   display: block;
   float: left;
   width: 30px;
   height: 30px;
   overflow: hidden;
+}
+
+.calendar-month {
+  width: 210px;
+  height: 180px;
+  margin: 10px;
+}
+
+.calendar-month--invisible {
+  display: none;
 }
 
 .calendar-day {
@@ -23,7 +28,7 @@
   cursor: pointer;
 }
 
-.calendar-day.inactive {
+.calendar-day--inactive {
   border: 1px solid #eee;
   background-color: #fff;
   color: #777;

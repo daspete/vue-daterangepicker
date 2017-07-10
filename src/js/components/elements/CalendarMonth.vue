@@ -1,10 +1,15 @@
 <template>
-    <div class="calendar-month">
+    <div :class="`calendar-month${visible == true ? '' : ' calendar-month--invisible'}`">
         <div class="calendar-month__header">
-            
+            {{ this.startDate.format('MMMM') }}
+            {{ this.startDate.format('YYYY') }}
         </div>
         <div class="calendar-month__days">
-            <calendar-day v-for="calendarDay in calendarDays" :day="calendarDay"></calendar-day>
+            <calendar-day v-for="(calendarDay, i) in calendarDays" 
+                :is-active="isDayValid(calendarDay)"
+                :day="calendarDay"
+                :key="`day-${i}`">
+            </calendar-day>
         </div>
     </div>
 </template>
@@ -23,7 +28,7 @@
 
         props: [
             'startDate',
-            'offset'
+            'visible'
         ],
 
         data(){
@@ -33,17 +38,28 @@
         },
 
         created(){
-            console.log(this.offset);
+            let startWeek = this.startDate.startOf('month').week();
+            let endWeek = this.startDate.endOf('month').week();
 
-            const startWeek = this.startDate.startOf('month').week();
-            const endWeek = this.startDate.endOf('month').week();
+            if(endWeek < startWeek){
+                endWeek = this.startDate.subtract(1, 'weeks').endOf('week').week();
+            }
 
             let calendar = [];
-            for(var week = startWeek; week < endWeek; week++){
-                calendar.push(Array(7).fill(0).map((n, i) => moment().week(week).startOf('week').clone().add(n + i, 'day')));
+
+            for(var week = startWeek; week <= endWeek; week++){
+                for(var i = 0; i < 7; i++){
+                    calendar.push(moment().week(week).startOf('week').clone().add(i, 'day'));
+                }
             }
 
             this.calendarDays = calendar;
+        },
+
+        methods: {
+            isDayValid(day){
+                return moment(day).isAfter(this.$parent.startDate);
+            }
         }
 
 

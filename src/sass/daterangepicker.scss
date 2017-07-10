@@ -1,16 +1,21 @@
 $calendarCellDimension: 30px;
 
-.calendar {
-    width: $calendarCellDimension * 7;
-    height: $calendarCellDimension * 6;
-}
-
 .calendar-label {
     display: block;
     float:left;
     width: $calendarCellDimension;
     height: $calendarCellDimension;
     overflow: hidden;
+}
+
+.calendar-month {
+    width: $calendarCellDimension * 7;
+    height: $calendarCellDimension * 6;
+    margin: 10px;
+
+    &--invisible {
+        display: none;
+    }
 }
 
 .calendar-day {
@@ -24,7 +29,7 @@ $calendarCellDimension: 30px;
     font-size: 10px;
     cursor: pointer;
 
-    &.inactive {
+    &--inactive {
         border: 1px solid #eee;
         background-color: #fff;
         color: #777;

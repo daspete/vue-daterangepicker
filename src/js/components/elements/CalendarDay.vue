@@ -1,6 +1,7 @@
 <template>
-    <button class="calendar-day">
-
+    <button :class="`calendar-day${isActive ? '' : ' calendar-day--inactive'}`">
+        {{ day.format('DD') }}
+        {{ this.isActive }}
     </button>
 </template>
 
@@ -10,11 +11,12 @@
     export default {
 
         props: [
-            'day'
+            'day',
+            'isActive'
         ],
 
         created(){
-            console.log(this.day);
+            
         }
 
     }
