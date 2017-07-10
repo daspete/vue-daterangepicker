@@ -1,9 +1,9 @@
 <template>
     <div class="datepicker-container">
         <div class="calendar-container">
-            <calendar-month v-for="i in parseInt(maxMonthCount)" 
-                :startDate="startDate.clone().add((i - 1), 'month')"
-                :visible="i > parseInt(visibleMonthCount) ? false : true"
+            <calendar-month v-for="i in parseInt(global.maxMonths)" 
+                :startDate="dates.start.startOf('month').clone().add((i - 1), 'month')"
+                :visible="i > parseInt(global.visibleMonths) ? false : true"
                 :key="`month-${i}`">
             </calendar-month>
         </div>
@@ -17,12 +17,7 @@
 
     export default {
 
-        props: [
-            'startDate',
-            'endDate',
-            'maxMonthCount',
-            'visibleMonthCount'
-        ],
+        store: [ 'global', 'dates' ],
 
         components: {
             CalendarMonth
@@ -37,8 +32,8 @@
         },
 
         methods: {
-            onDayClicked(e){
-                
+            selectDay(day){
+                console.log(day);
             }
         }
     }

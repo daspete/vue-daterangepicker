@@ -1,7 +1,6 @@
 <template>
-    <button :class="`calendar-day${isActive ? '' : ' calendar-day--inactive'}`">
+    <button :class="`calendar-day${isActive ? '' : ' calendar-day--inactive'}${isVisible ? '' : ' calendar-day--invisible'}`" v-on:click="onClick">
         {{ day.format('DD') }}
-        {{ this.isActive }}
     </button>
 </template>
 
@@ -12,11 +11,21 @@
 
         props: [
             'day',
-            'isActive'
+            'isActive',
+            'isVisible'
         ],
 
         created(){
             
+        },
+
+        methods: {
+            onClick(e){
+                if(!this.isActive) return;
+                if(!this.isVisible) return;
+
+                this.$parent.$parent.selectDay(this.day);
+            }
         }
 
     }

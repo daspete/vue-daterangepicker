@@ -8,12 +8,22 @@
 
 .calendar-month {
   width: 210px;
-  height: 180px;
+  height: 210px;
   margin: 10px;
+  display: inline-block;
+  background-color: #fcfcfc;
 }
 
 .calendar-month--invisible {
   display: none;
+}
+
+.calendar-month__header {
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 4px;
+  background-color: #ccc;
 }
 
 .calendar-day {
@@ -33,6 +43,10 @@
   background-color: #fff;
   color: #777;
   cursor: not-allowed;
+}
+
+.calendar-day--invisible {
+  opacity: 0;
 }
 
 .calendar-day.invisible {

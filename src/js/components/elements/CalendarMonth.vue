@@ -7,6 +7,7 @@
         <div class="calendar-month__days">
             <calendar-day v-for="(calendarDay, i) in calendarDays" 
                 :is-active="isDayValid(calendarDay)"
+                :is-visible="isDayVisible(calendarDay)"
                 :day="calendarDay"
                 :key="`day-${i}`">
             </calendar-day>
@@ -38,27 +39,42 @@
         },
 
         created(){
-            let startWeek = this.startDate.startOf('month').week();
-            let endWeek = this.startDate.endOf('month').week();
+            var startDay = moment(this.startDate.clone().startOf('week'));
+            var endDay = moment(moment(this.startDate.clone().endOf('month')).endOf('week'));
 
-            if(endWeek < startWeek){
-                endWeek = this.startDate.subtract(1, 'weeks').endOf('week').week();
+            var currentDay = startDay;
+
+            while(currentDay.isBefore(endDay)){
+                this.calendarDays.push(currentDay);
+                currentDay = currentDay.clone().add(1, 'days');
             }
-
-            let calendar = [];
-
-            for(var week = startWeek; week <= endWeek; week++){
-                for(var i = 0; i < 7; i++){
-                    calendar.push(moment().week(week).startOf('week').clone().add(i, 'day'));
-                }
-            }
-
-            this.calendarDays = calendar;
         },
 
         methods: {
             isDayValid(day){
-                return moment(day).isAfter(this.$parent.startDate);
+                var isValid = this.$parent.$parent.isValidDate(day);
+                
+                if(isValid)
+                    isValid = moment(day).isAfter(moment());
+                
+                /*
+                if(isValid)
+                    isValid = moment(day).isAfter(moment(this.startDate.startOf('month')).subtract(1, 'days'));
+
+                if(isValid)
+                    isValid = moment(day).isBefore(this.startDate.endOf('month'));
+                */
+
+                return isValid;
+            },
+
+            isDayVisible(day){
+                var isVisible = moment(day).isAfter(moment(this.startDate.startOf('month')).subtract(1, 'days'));
+
+                if(isVisible)
+                    isVisible = moment(day).isBefore(this.startDate.endOf('month'));
+
+                return isVisible;
             }
         }
 

@@ -1,6 +1,6 @@
 <template>
     <div class="date-input-field-container">
-        <input type="text" :value="date.format('DD.MM.YYYY')" :name="`date-input-${type}`" v-on:click="onClicked">
+        <input type="text" :value="dates[type].format('DD.MM.YYYY')" :name="`date-input-${type}`" v-on:click="onClicked">
     </div>
 </template>
 
@@ -8,9 +8,11 @@
     import * as moment from 'moment';
 
     export default {
+
+        store: [ 'dates' ],
+
         props: [
-            'type',
-            'date'
+            'type'
         ],
 
         created(){

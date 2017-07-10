@@ -10,11 +10,21 @@ $calendarCellDimension: 30px;
 
 .calendar-month {
     width: $calendarCellDimension * 7;
-    height: $calendarCellDimension * 6;
+    height: $calendarCellDimension * 7;
     margin: 10px;
+    display: inline-block;
+    background-color: #fcfcfc;
 
     &--invisible {
         display: none;
+    }
+
+    &__header {
+        font-weight: 700;
+        font-size: 1.2rem;
+        text-align: center;
+        padding: 4px;
+        background-color: #ccc;
     }
 }
 
@@ -34,6 +44,9 @@ $calendarCellDimension: 30px;
         background-color: #fff;
         color: #777;
         cursor: not-allowed;
+    }
+    &--invisible {
+        opacity: 0;
     }
 
     &.invisible {

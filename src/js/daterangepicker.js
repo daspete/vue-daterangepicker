@@ -12,7 +12,17 @@ const drp = new Vue({
     components: { DateRangePicker },
     data(){
         return {
-            store: {}
+            store: {
+                global: {
+                    maxMonths: 18,
+                    visibleMonths: 2
+                },
+                dates: {
+                    start: null,
+                    end: null,
+                    invalid: []
+                }
+            }
         }
     }
 });
