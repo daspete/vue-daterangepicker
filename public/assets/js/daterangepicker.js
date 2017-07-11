@@ -25687,6 +25687,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -25803,6 +25805,7 @@ module.exports = Component.exports
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_moment__);
+//
 //
 //
 //
@@ -26115,16 +26118,18 @@ webpackContext.id = 129;
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "date-input-field-container"
-  }, [_c('input', {
+  }, [_c('div', {
+    class: ("date-input date-input-" + _vm.type),
+    on: {
+      "click": _vm.onClicked
+    }
+  }, [_vm._v(_vm._s((_vm.selection[_vm.type] === null ? _vm.dates : _vm.selection)[_vm.type].format('DD.MM.YYYY')))]), _vm._v(" "), _c('input', {
     attrs: {
-      "type": "text",
+      "type": "hidden",
       "name": ("date-input-" + _vm.type)
     },
     domProps: {
       "value": (_vm.selection[_vm.type] === null ? _vm.dates : _vm.selection)[_vm.type].format('DD.MM.YYYY')
-    },
-    on: {
-      "click": _vm.onClicked
     }
   })])
 },staticRenderFns: []}
@@ -34526,6 +34531,8 @@ if (false) {
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "date-range-picker"
+  }, [_c('div', {
+    staticClass: "date-pickers-container"
   }, [_c('date-input-field', {
     ref: "start-date-field",
     attrs: {
@@ -34536,7 +34543,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "type": "end"
     }
-  }), _vm._v(" "), (_vm.pickerOpen === true) ? _c('date-picker', {
+  })], 1), _vm._v(" "), (_vm.pickerOpen === true) ? _c('date-picker', {
     ref: "date-picker"
   }) : _vm._e()], 1)
 },staticRenderFns: []}

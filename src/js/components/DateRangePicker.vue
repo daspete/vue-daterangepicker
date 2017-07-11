@@ -1,8 +1,10 @@
 <template>
     <div class="date-range-picker">
-        <date-input-field type="start" ref="start-date-field"></date-input-field>
-        <date-input-field type="end" ref="end-date-field"></date-input-field>
-
+        <div class="date-pickers-container">
+            <date-input-field type="start" ref="start-date-field"></date-input-field>
+            <date-input-field type="end" ref="end-date-field"></date-input-field>
+        </div>
+        
         <date-picker v-if="pickerOpen === true" ref="date-picker"></date-picker>
     </div>
 </template>

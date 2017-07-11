@@ -1,3 +1,47 @@
+html,
+body {
+  -webkit-box-sizing: border-box;
+             -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: inherit;
+             -moz-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+.date-pickers-container {
+  position: relative;
+  border: 1px solid #ccc;
+}
+
+.date-pickers-container .date-input-field-container {
+  display: inline-block;
+  width: 48%;
+}
+
+.date-pickers-container .date-input-field-container .date-input {
+  padding: 5px;
+  text-align: center;
+}
+
+.date-pickers-container:after {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  content: '>';
+  margin-top: -10px;
+  margin-left: -10px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 20px;
+}
+
 .calendar-label {
   display: block;
   float: left;
