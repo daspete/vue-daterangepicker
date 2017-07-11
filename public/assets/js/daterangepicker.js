@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 117);
+/******/ 	return __webpack_require__(__webpack_require__.s = 118);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -4632,6 +4632,33 @@ module.exports = function normalizeComponent (
 
 /***/ }),
 /* 2 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -4709,7 +4736,7 @@ return af;
 
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -4856,7 +4883,7 @@ return ar;
 
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -4920,7 +4947,7 @@ return arDz;
 
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -4984,7 +5011,7 @@ return arKw;
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -5115,7 +5142,7 @@ return arLy;
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -5180,7 +5207,7 @@ return arMa;
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -5290,7 +5317,7 @@ return arSa;
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -5354,7 +5381,7 @@ return arTn;
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -5464,7 +5491,7 @@ return az;
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -5603,7 +5630,7 @@ return be;
 
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -5698,7 +5725,7 @@ return bg;
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -5822,7 +5849,7 @@ return bn;
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -5946,7 +5973,7 @@ return bo;
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -6059,7 +6086,7 @@ return br;
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -6207,7 +6234,7 @@ return bs;
 
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -6300,7 +6327,7 @@ return ca;
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -6477,7 +6504,7 @@ return cs;
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -6545,7 +6572,7 @@ return cv;
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -6631,7 +6658,7 @@ return cy;
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -6696,7 +6723,7 @@ return da;
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -6779,7 +6806,7 @@ return de;
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -6863,7 +6890,7 @@ return deAt;
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -6946,7 +6973,7 @@ return deCh;
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7051,7 +7078,7 @@ return dv;
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7156,7 +7183,7 @@ return el;
 
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7228,7 +7255,7 @@ return enAu;
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7296,7 +7323,7 @@ return enCa;
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7368,7 +7395,7 @@ return enGb;
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7440,7 +7467,7 @@ return enIe;
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7512,7 +7539,7 @@ return enNz;
 
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7590,7 +7617,7 @@ return eo;
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7678,7 +7705,7 @@ return es;
 
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7765,7 +7792,7 @@ return esDo;
 
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7850,7 +7877,7 @@ return et;
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7921,7 +7948,7 @@ return eu;
 
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8033,7 +8060,7 @@ return fa;
 
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8145,7 +8172,7 @@ return fi;
 
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8210,7 +8237,7 @@ return fo;
 
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8298,7 +8325,7 @@ return fr;
 
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8377,7 +8404,7 @@ return frCa;
 
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8460,7 +8487,7 @@ return frCh;
 
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8540,7 +8567,7 @@ return fy;
 
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8621,7 +8648,7 @@ return gd;
 
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8703,7 +8730,7 @@ return gl;
 
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8830,7 +8857,7 @@ return gomLatn;
 
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8934,7 +8961,7 @@ return he;
 
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -9063,7 +9090,7 @@ return hi;
 
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -9213,7 +9240,7 @@ return hr;
 
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -9327,7 +9354,7 @@ return hu;
 
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -9427,7 +9454,7 @@ return hyAm;
 
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -9515,7 +9542,7 @@ return id;
 
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -9647,7 +9674,7 @@ return is;
 
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -9722,7 +9749,7 @@ return it;
 
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -9807,7 +9834,7 @@ return ja;
 
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -9895,7 +9922,7 @@ return jv;
 
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -9989,7 +10016,7 @@ return ka;
 
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -10081,7 +10108,7 @@ return kk;
 
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -10144,7 +10171,7 @@ return km;
 
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -10275,7 +10302,7 @@ return kn;
 
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -10349,7 +10376,7 @@ return ko;
 
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -10442,7 +10469,7 @@ return ky;
 
 
 /***/ }),
-/* 63 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -10584,7 +10611,7 @@ return lb;
 
 
 /***/ }),
-/* 64 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -10659,7 +10686,7 @@ return lo;
 
 
 /***/ }),
-/* 65 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -10781,7 +10808,7 @@ return lt;
 
 
 /***/ }),
-/* 66 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -10883,7 +10910,7 @@ return lv;
 
 
 /***/ }),
-/* 67 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -10999,7 +11026,7 @@ return me;
 
 
 /***/ }),
-/* 68 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -11068,7 +11095,7 @@ return mi;
 
 
 /***/ }),
-/* 69 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -11163,7 +11190,7 @@ return mk;
 
 
 /***/ }),
-/* 70 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -11249,7 +11276,7 @@ return ml;
 
 
 /***/ }),
-/* 71 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -11413,7 +11440,7 @@ return mr;
 
 
 /***/ }),
-/* 72 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -11500,7 +11527,7 @@ return ms;
 
 
 /***/ }),
-/* 73 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -11588,7 +11615,7 @@ return msMy;
 
 
 /***/ }),
-/* 74 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -11689,7 +11716,7 @@ return my;
 
 
 /***/ }),
-/* 75 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -11757,7 +11784,7 @@ return nb;
 
 
 /***/ }),
-/* 76 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -11885,7 +11912,7 @@ return ne;
 
 
 /***/ }),
-/* 77 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -11978,7 +12005,7 @@ return nl;
 
 
 /***/ }),
-/* 78 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -12071,7 +12098,7 @@ return nlBe;
 
 
 /***/ }),
-/* 79 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -12136,7 +12163,7 @@ return nn;
 
 
 /***/ }),
-/* 80 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -12265,7 +12292,7 @@ return paIn;
 
 
 /***/ }),
-/* 81 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -12377,7 +12404,7 @@ return pl;
 
 
 /***/ }),
-/* 82 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -12447,7 +12474,7 @@ return pt;
 
 
 /***/ }),
-/* 83 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -12513,7 +12540,7 @@ return ptBr;
 
 
 /***/ }),
-/* 84 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -12593,7 +12620,7 @@ return ro;
 
 
 /***/ }),
-/* 85 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -12781,7 +12808,7 @@ return ru;
 
 
 /***/ }),
-/* 86 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -12884,7 +12911,7 @@ return sd;
 
 
 /***/ }),
-/* 87 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -12950,7 +12977,7 @@ return se;
 
 
 /***/ }),
-/* 88 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -13026,7 +13053,7 @@ return si;
 
 
 /***/ }),
-/* 89 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -13181,7 +13208,7 @@ return sk;
 
 
 /***/ }),
-/* 90 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -13348,7 +13375,7 @@ return sl;
 
 
 /***/ }),
-/* 91 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -13423,7 +13450,7 @@ return sq;
 
 
 /***/ }),
-/* 92 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -13538,7 +13565,7 @@ return sr;
 
 
 /***/ }),
-/* 93 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -13653,7 +13680,7 @@ return srCyrl;
 
 
 /***/ }),
-/* 94 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -13747,7 +13774,7 @@ return ss;
 
 
 /***/ }),
-/* 95 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -13821,7 +13848,7 @@ return sv;
 
 
 /***/ }),
-/* 96 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -13885,7 +13912,7 @@ return sw;
 
 
 /***/ }),
-/* 97 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -14020,7 +14047,7 @@ return ta;
 
 
 /***/ }),
-/* 98 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -14114,7 +14141,7 @@ return te;
 
 
 /***/ }),
-/* 99 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -14187,7 +14214,7 @@ return tet;
 
 
 /***/ }),
-/* 100 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -14259,7 +14286,7 @@ return th;
 
 
 /***/ }),
-/* 101 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -14326,7 +14353,7 @@ return tlPh;
 
 
 /***/ }),
-/* 102 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -14451,7 +14478,7 @@ return tlh;
 
 
 /***/ }),
-/* 103 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -14546,7 +14573,7 @@ return tr;
 
 
 /***/ }),
-/* 104 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -14642,7 +14669,7 @@ return tzl;
 
 
 /***/ }),
-/* 105 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -14705,7 +14732,7 @@ return tzm;
 
 
 /***/ }),
-/* 106 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -14768,7 +14795,7 @@ return tzmLatn;
 
 
 /***/ }),
-/* 107 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -14924,7 +14951,7 @@ return uk;
 
 
 /***/ }),
-/* 108 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -15028,7 +15055,7 @@ return ur;
 
 
 /***/ }),
-/* 109 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -15091,7 +15118,7 @@ return uz;
 
 
 /***/ }),
-/* 110 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -15154,7 +15181,7 @@ return uzLatn;
 
 
 /***/ }),
-/* 111 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -15238,7 +15265,7 @@ return vi;
 
 
 /***/ }),
-/* 112 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -15311,7 +15338,7 @@ return xPseudo;
 
 
 /***/ }),
-/* 113 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -15376,7 +15403,7 @@ return yo;
 
 
 /***/ }),
-/* 114 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -15492,7 +15519,7 @@ return zhCn;
 
 
 /***/ }),
-/* 115 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -15602,7 +15629,7 @@ return zhHk;
 
 
 /***/ }),
-/* 116 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -15711,20 +15738,20 @@ return zhTw;
 
 
 /***/ }),
-/* 117 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(118);
-module.exports = __webpack_require__(141);
+__webpack_require__(119);
+module.exports = __webpack_require__(142);
 
 
 /***/ }),
-/* 118 */
+/* 119 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(119);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(120);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_stash__ = __webpack_require__(121);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_stash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_stash__);
@@ -15739,33 +15766,37 @@ __webpack_require__(123);
 
 
 
-var drp = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
-    el: '.daterangepicker',
-    components: { DateRangePicker: __WEBPACK_IMPORTED_MODULE_2__components_DateRangePicker_vue___default.a },
-    data: function data() {
-        return {
-            store: {
-                global: {
-                    maxMonths: 18,
-                    visibleMonths: 2
-                },
-                dates: {
-                    start: null,
-                    end: null,
-                    invalid: []
-                },
-                selection: {
-                    current: null,
-                    start: null,
-                    end: null
+var containers = document.getElementsByClassName('daterangepicker');
+
+for (var i = 0; i < containers.length; i++) {
+    var drp = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
+        el: containers[i],
+        components: { DateRangePicker: __WEBPACK_IMPORTED_MODULE_2__components_DateRangePicker_vue___default.a },
+        data: function data() {
+            return {
+                store: {
+                    global: {
+                        maxMonths: 18,
+                        visibleMonths: 2
+                    },
+                    dates: {
+                        start: null,
+                        end: null,
+                        invalid: []
+                    },
+                    selection: {
+                        current: null,
+                        start: null,
+                        end: null
+                    }
                 }
-            }
-        };
-    }
-});
+            };
+        }
+    });
+}
 
 /***/ }),
-/* 119 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25461,34 +25492,7 @@ Vue$3.compile = compileToFunctions;
 
 module.exports = Vue$3;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(120)))
-
-/***/ }),
-/* 120 */
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
 /* 121 */
@@ -25631,7 +25635,7 @@ var Component = __webpack_require__(1)(
   /* script */
   __webpack_require__(125),
   /* template */
-  __webpack_require__(140),
+  __webpack_require__(141),
   /* styles */
   null,
   /* scopeId */
@@ -25857,236 +25861,236 @@ module.exports = function(module) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./af": 2,
-	"./af.js": 2,
-	"./ar": 3,
-	"./ar-dz": 4,
-	"./ar-dz.js": 4,
-	"./ar-kw": 5,
-	"./ar-kw.js": 5,
-	"./ar-ly": 6,
-	"./ar-ly.js": 6,
-	"./ar-ma": 7,
-	"./ar-ma.js": 7,
-	"./ar-sa": 8,
-	"./ar-sa.js": 8,
-	"./ar-tn": 9,
-	"./ar-tn.js": 9,
-	"./ar.js": 3,
-	"./az": 10,
-	"./az.js": 10,
-	"./be": 11,
-	"./be.js": 11,
-	"./bg": 12,
-	"./bg.js": 12,
-	"./bn": 13,
-	"./bn.js": 13,
-	"./bo": 14,
-	"./bo.js": 14,
-	"./br": 15,
-	"./br.js": 15,
-	"./bs": 16,
-	"./bs.js": 16,
-	"./ca": 17,
-	"./ca.js": 17,
-	"./cs": 18,
-	"./cs.js": 18,
-	"./cv": 19,
-	"./cv.js": 19,
-	"./cy": 20,
-	"./cy.js": 20,
-	"./da": 21,
-	"./da.js": 21,
-	"./de": 22,
-	"./de-at": 23,
-	"./de-at.js": 23,
-	"./de-ch": 24,
-	"./de-ch.js": 24,
-	"./de.js": 22,
-	"./dv": 25,
-	"./dv.js": 25,
-	"./el": 26,
-	"./el.js": 26,
-	"./en-au": 27,
-	"./en-au.js": 27,
-	"./en-ca": 28,
-	"./en-ca.js": 28,
-	"./en-gb": 29,
-	"./en-gb.js": 29,
-	"./en-ie": 30,
-	"./en-ie.js": 30,
-	"./en-nz": 31,
-	"./en-nz.js": 31,
-	"./eo": 32,
-	"./eo.js": 32,
-	"./es": 33,
-	"./es-do": 34,
-	"./es-do.js": 34,
-	"./es.js": 33,
-	"./et": 35,
-	"./et.js": 35,
-	"./eu": 36,
-	"./eu.js": 36,
-	"./fa": 37,
-	"./fa.js": 37,
-	"./fi": 38,
-	"./fi.js": 38,
-	"./fo": 39,
-	"./fo.js": 39,
-	"./fr": 40,
-	"./fr-ca": 41,
-	"./fr-ca.js": 41,
-	"./fr-ch": 42,
-	"./fr-ch.js": 42,
-	"./fr.js": 40,
-	"./fy": 43,
-	"./fy.js": 43,
-	"./gd": 44,
-	"./gd.js": 44,
-	"./gl": 45,
-	"./gl.js": 45,
-	"./gom-latn": 46,
-	"./gom-latn.js": 46,
-	"./he": 47,
-	"./he.js": 47,
-	"./hi": 48,
-	"./hi.js": 48,
-	"./hr": 49,
-	"./hr.js": 49,
-	"./hu": 50,
-	"./hu.js": 50,
-	"./hy-am": 51,
-	"./hy-am.js": 51,
-	"./id": 52,
-	"./id.js": 52,
-	"./is": 53,
-	"./is.js": 53,
-	"./it": 54,
-	"./it.js": 54,
-	"./ja": 55,
-	"./ja.js": 55,
-	"./jv": 56,
-	"./jv.js": 56,
-	"./ka": 57,
-	"./ka.js": 57,
-	"./kk": 58,
-	"./kk.js": 58,
-	"./km": 59,
-	"./km.js": 59,
-	"./kn": 60,
-	"./kn.js": 60,
-	"./ko": 61,
-	"./ko.js": 61,
-	"./ky": 62,
-	"./ky.js": 62,
-	"./lb": 63,
-	"./lb.js": 63,
-	"./lo": 64,
-	"./lo.js": 64,
-	"./lt": 65,
-	"./lt.js": 65,
-	"./lv": 66,
-	"./lv.js": 66,
-	"./me": 67,
-	"./me.js": 67,
-	"./mi": 68,
-	"./mi.js": 68,
-	"./mk": 69,
-	"./mk.js": 69,
-	"./ml": 70,
-	"./ml.js": 70,
-	"./mr": 71,
-	"./mr.js": 71,
-	"./ms": 72,
-	"./ms-my": 73,
-	"./ms-my.js": 73,
-	"./ms.js": 72,
-	"./my": 74,
-	"./my.js": 74,
-	"./nb": 75,
-	"./nb.js": 75,
-	"./ne": 76,
-	"./ne.js": 76,
-	"./nl": 77,
-	"./nl-be": 78,
-	"./nl-be.js": 78,
-	"./nl.js": 77,
-	"./nn": 79,
-	"./nn.js": 79,
-	"./pa-in": 80,
-	"./pa-in.js": 80,
-	"./pl": 81,
-	"./pl.js": 81,
-	"./pt": 82,
-	"./pt-br": 83,
-	"./pt-br.js": 83,
-	"./pt.js": 82,
-	"./ro": 84,
-	"./ro.js": 84,
-	"./ru": 85,
-	"./ru.js": 85,
-	"./sd": 86,
-	"./sd.js": 86,
-	"./se": 87,
-	"./se.js": 87,
-	"./si": 88,
-	"./si.js": 88,
-	"./sk": 89,
-	"./sk.js": 89,
-	"./sl": 90,
-	"./sl.js": 90,
-	"./sq": 91,
-	"./sq.js": 91,
-	"./sr": 92,
-	"./sr-cyrl": 93,
-	"./sr-cyrl.js": 93,
-	"./sr.js": 92,
-	"./ss": 94,
-	"./ss.js": 94,
-	"./sv": 95,
-	"./sv.js": 95,
-	"./sw": 96,
-	"./sw.js": 96,
-	"./ta": 97,
-	"./ta.js": 97,
-	"./te": 98,
-	"./te.js": 98,
-	"./tet": 99,
-	"./tet.js": 99,
-	"./th": 100,
-	"./th.js": 100,
-	"./tl-ph": 101,
-	"./tl-ph.js": 101,
-	"./tlh": 102,
-	"./tlh.js": 102,
-	"./tr": 103,
-	"./tr.js": 103,
-	"./tzl": 104,
-	"./tzl.js": 104,
-	"./tzm": 105,
-	"./tzm-latn": 106,
-	"./tzm-latn.js": 106,
-	"./tzm.js": 105,
-	"./uk": 107,
-	"./uk.js": 107,
-	"./ur": 108,
-	"./ur.js": 108,
-	"./uz": 109,
-	"./uz-latn": 110,
-	"./uz-latn.js": 110,
-	"./uz.js": 109,
-	"./vi": 111,
-	"./vi.js": 111,
-	"./x-pseudo": 112,
-	"./x-pseudo.js": 112,
-	"./yo": 113,
-	"./yo.js": 113,
-	"./zh-cn": 114,
-	"./zh-cn.js": 114,
-	"./zh-hk": 115,
-	"./zh-hk.js": 115,
-	"./zh-tw": 116,
-	"./zh-tw.js": 116
+	"./af": 3,
+	"./af.js": 3,
+	"./ar": 4,
+	"./ar-dz": 5,
+	"./ar-dz.js": 5,
+	"./ar-kw": 6,
+	"./ar-kw.js": 6,
+	"./ar-ly": 7,
+	"./ar-ly.js": 7,
+	"./ar-ma": 8,
+	"./ar-ma.js": 8,
+	"./ar-sa": 9,
+	"./ar-sa.js": 9,
+	"./ar-tn": 10,
+	"./ar-tn.js": 10,
+	"./ar.js": 4,
+	"./az": 11,
+	"./az.js": 11,
+	"./be": 12,
+	"./be.js": 12,
+	"./bg": 13,
+	"./bg.js": 13,
+	"./bn": 14,
+	"./bn.js": 14,
+	"./bo": 15,
+	"./bo.js": 15,
+	"./br": 16,
+	"./br.js": 16,
+	"./bs": 17,
+	"./bs.js": 17,
+	"./ca": 18,
+	"./ca.js": 18,
+	"./cs": 19,
+	"./cs.js": 19,
+	"./cv": 20,
+	"./cv.js": 20,
+	"./cy": 21,
+	"./cy.js": 21,
+	"./da": 22,
+	"./da.js": 22,
+	"./de": 23,
+	"./de-at": 24,
+	"./de-at.js": 24,
+	"./de-ch": 25,
+	"./de-ch.js": 25,
+	"./de.js": 23,
+	"./dv": 26,
+	"./dv.js": 26,
+	"./el": 27,
+	"./el.js": 27,
+	"./en-au": 28,
+	"./en-au.js": 28,
+	"./en-ca": 29,
+	"./en-ca.js": 29,
+	"./en-gb": 30,
+	"./en-gb.js": 30,
+	"./en-ie": 31,
+	"./en-ie.js": 31,
+	"./en-nz": 32,
+	"./en-nz.js": 32,
+	"./eo": 33,
+	"./eo.js": 33,
+	"./es": 34,
+	"./es-do": 35,
+	"./es-do.js": 35,
+	"./es.js": 34,
+	"./et": 36,
+	"./et.js": 36,
+	"./eu": 37,
+	"./eu.js": 37,
+	"./fa": 38,
+	"./fa.js": 38,
+	"./fi": 39,
+	"./fi.js": 39,
+	"./fo": 40,
+	"./fo.js": 40,
+	"./fr": 41,
+	"./fr-ca": 42,
+	"./fr-ca.js": 42,
+	"./fr-ch": 43,
+	"./fr-ch.js": 43,
+	"./fr.js": 41,
+	"./fy": 44,
+	"./fy.js": 44,
+	"./gd": 45,
+	"./gd.js": 45,
+	"./gl": 46,
+	"./gl.js": 46,
+	"./gom-latn": 47,
+	"./gom-latn.js": 47,
+	"./he": 48,
+	"./he.js": 48,
+	"./hi": 49,
+	"./hi.js": 49,
+	"./hr": 50,
+	"./hr.js": 50,
+	"./hu": 51,
+	"./hu.js": 51,
+	"./hy-am": 52,
+	"./hy-am.js": 52,
+	"./id": 53,
+	"./id.js": 53,
+	"./is": 54,
+	"./is.js": 54,
+	"./it": 55,
+	"./it.js": 55,
+	"./ja": 56,
+	"./ja.js": 56,
+	"./jv": 57,
+	"./jv.js": 57,
+	"./ka": 58,
+	"./ka.js": 58,
+	"./kk": 59,
+	"./kk.js": 59,
+	"./km": 60,
+	"./km.js": 60,
+	"./kn": 61,
+	"./kn.js": 61,
+	"./ko": 62,
+	"./ko.js": 62,
+	"./ky": 63,
+	"./ky.js": 63,
+	"./lb": 64,
+	"./lb.js": 64,
+	"./lo": 65,
+	"./lo.js": 65,
+	"./lt": 66,
+	"./lt.js": 66,
+	"./lv": 67,
+	"./lv.js": 67,
+	"./me": 68,
+	"./me.js": 68,
+	"./mi": 69,
+	"./mi.js": 69,
+	"./mk": 70,
+	"./mk.js": 70,
+	"./ml": 71,
+	"./ml.js": 71,
+	"./mr": 72,
+	"./mr.js": 72,
+	"./ms": 73,
+	"./ms-my": 74,
+	"./ms-my.js": 74,
+	"./ms.js": 73,
+	"./my": 75,
+	"./my.js": 75,
+	"./nb": 76,
+	"./nb.js": 76,
+	"./ne": 77,
+	"./ne.js": 77,
+	"./nl": 78,
+	"./nl-be": 79,
+	"./nl-be.js": 79,
+	"./nl.js": 78,
+	"./nn": 80,
+	"./nn.js": 80,
+	"./pa-in": 81,
+	"./pa-in.js": 81,
+	"./pl": 82,
+	"./pl.js": 82,
+	"./pt": 83,
+	"./pt-br": 84,
+	"./pt-br.js": 84,
+	"./pt.js": 83,
+	"./ro": 85,
+	"./ro.js": 85,
+	"./ru": 86,
+	"./ru.js": 86,
+	"./sd": 87,
+	"./sd.js": 87,
+	"./se": 88,
+	"./se.js": 88,
+	"./si": 89,
+	"./si.js": 89,
+	"./sk": 90,
+	"./sk.js": 90,
+	"./sl": 91,
+	"./sl.js": 91,
+	"./sq": 92,
+	"./sq.js": 92,
+	"./sr": 93,
+	"./sr-cyrl": 94,
+	"./sr-cyrl.js": 94,
+	"./sr.js": 93,
+	"./ss": 95,
+	"./ss.js": 95,
+	"./sv": 96,
+	"./sv.js": 96,
+	"./sw": 97,
+	"./sw.js": 97,
+	"./ta": 98,
+	"./ta.js": 98,
+	"./te": 99,
+	"./te.js": 99,
+	"./tet": 100,
+	"./tet.js": 100,
+	"./th": 101,
+	"./th.js": 101,
+	"./tl-ph": 102,
+	"./tl-ph.js": 102,
+	"./tlh": 103,
+	"./tlh.js": 103,
+	"./tr": 104,
+	"./tr.js": 104,
+	"./tzl": 105,
+	"./tzl.js": 105,
+	"./tzm": 106,
+	"./tzm-latn": 107,
+	"./tzm-latn.js": 107,
+	"./tzm.js": 106,
+	"./uk": 108,
+	"./uk.js": 108,
+	"./ur": 109,
+	"./ur.js": 109,
+	"./uz": 110,
+	"./uz-latn": 111,
+	"./uz-latn.js": 111,
+	"./uz.js": 110,
+	"./vi": 112,
+	"./vi.js": 112,
+	"./x-pseudo": 113,
+	"./x-pseudo.js": 113,
+	"./yo": 114,
+	"./yo.js": 114,
+	"./zh-cn": 115,
+	"./zh-cn.js": 115,
+	"./zh-hk": 116,
+	"./zh-hk.js": 116,
+	"./zh-tw": 117,
+	"./zh-tw.js": 117
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -26141,7 +26145,7 @@ var Component = __webpack_require__(1)(
   /* script */
   __webpack_require__(132),
   /* template */
-  __webpack_require__(139),
+  __webpack_require__(140),
   /* styles */
   null,
   /* scopeId */
@@ -26180,9 +26184,9 @@ module.exports = Component.exports
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_gsap__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_gsap__ = __webpack_require__(133);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_gsap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_gsap__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__CalendarMonth_vue__ = __webpack_require__(133);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__CalendarMonth_vue__ = __webpack_require__(134);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__CalendarMonth_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__CalendarMonth_vue__);
 //
 //
@@ -26243,387 +26247,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 /* 133 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var Component = __webpack_require__(1)(
-  /* script */
-  __webpack_require__(134),
-  /* template */
-  __webpack_require__(138),
-  /* styles */
-  null,
-  /* scopeId */
-  null,
-  /* moduleIdentifier (server only) */
-  null
-)
-Component.options.__file = "/mnt/c/develop/modules/vue-daterangepicker/src/js/components/elements/CalendarMonth.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] CalendarMonth.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-7f464322", Component.options)
-  } else {
-    hotAPI.reload("data-v-7f464322", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 134 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__CalendarDay_vue__ = __webpack_require__(135);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__CalendarDay_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__CalendarDay_vue__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-
-    components: {
-        CalendarDay: __WEBPACK_IMPORTED_MODULE_1__CalendarDay_vue___default.a
-    },
-
-    props: ['startDate', 'visible'],
-
-    data: function data() {
-        return {
-            calendarDays: [],
-            weekdays: __WEBPACK_IMPORTED_MODULE_0_moment__["weekdaysMin"](true)
-        };
-    },
-    created: function created() {
-        var startDay = __WEBPACK_IMPORTED_MODULE_0_moment__(this.startDate.clone().startOf('week'));
-        var endDay = __WEBPACK_IMPORTED_MODULE_0_moment__(__WEBPACK_IMPORTED_MODULE_0_moment__(this.startDate.clone().endOf('month')).endOf('week'));
-
-        var currentDay = startDay;
-
-        while (currentDay.isBefore(endDay)) {
-            this.calendarDays.push(currentDay);
-            currentDay = currentDay.clone().add(1, 'days');
-        }
-    },
-
-
-    methods: {
-        isDayValid: function isDayValid(day) {
-            var isValid = this.$parent.$parent.isValidDate(day);
-
-            if (isValid) isValid = __WEBPACK_IMPORTED_MODULE_0_moment__(day).isAfter(__WEBPACK_IMPORTED_MODULE_0_moment__());
-
-            return isValid;
-        },
-        isDayVisible: function isDayVisible(day) {
-            var isVisible = __WEBPACK_IMPORTED_MODULE_0_moment__(day).isAfter(__WEBPACK_IMPORTED_MODULE_0_moment__(this.startDate.startOf('month')).subtract(1, 'days'));
-
-            if (isVisible) isVisible = __WEBPACK_IMPORTED_MODULE_0_moment__(day).isBefore(this.startDate.endOf('month'));
-
-            return isVisible;
-        }
-    }
-
-});
-
-/***/ }),
-/* 135 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var Component = __webpack_require__(1)(
-  /* script */
-  __webpack_require__(136),
-  /* template */
-  __webpack_require__(137),
-  /* styles */
-  null,
-  /* scopeId */
-  null,
-  /* moduleIdentifier (server only) */
-  null
-)
-Component.options.__file = "/mnt/c/develop/modules/vue-daterangepicker/src/js/components/elements/CalendarDay.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] CalendarDay.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-f186896a", Component.options)
-  } else {
-    hotAPI.reload("data-v-f186896a", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 136 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_moment__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-
-    store: ['global', 'dates', 'selection'],
-
-    props: ['day', 'isActive', 'isVisible'],
-
-    computed: {
-        isSelected: function isSelected() {
-            if (this.selection.start === null && this.selection.end === null) return false;
-
-            if (this.selection.start !== null && this.selection.start.clone().startOf('day').isSame(this.day)) return true;
-            if (this.selection.end !== null && this.selection.end.clone().startOf('day').isSame(this.day)) return true;
-
-            return false;
-        },
-        isInRange: function isInRange() {
-            if (this.selection.start === null) return false;
-            if (this.selection.end === null) return false;
-
-            return this.day.isAfter(this.selection.start) && this.day.isBefore(this.selection.end);
-        }
-    },
-
-    created: function created() {},
-
-
-    methods: {
-        onClick: function onClick(e) {
-            if (this.selection.current === null) return;
-
-            if (this.day.isBefore(this.selection.start)) {
-                this.selection.start = this.day.clone();
-                return;
-            }
-
-            if (this.selection.current === 'start' && this.day.isAfter(this.selection.end)) {
-                this.selection.current = 'end';
-                this.selection.start = this.day.clone();
-                this.selection.end = this.day.clone().add(1, 'days');
-                return;
-            }
-
-            if (this.selection.current === 'start') {
-                this.selection.start = this.day.clone();
-                this.selection.current = 'end';
-                return;
-            }
-
-            if (this.selection.current === 'end') {
-                this.selection.end = this.day.clone();
-                this.$parent.$parent.$parent.pickerOpen = false;
-                return;
-            }
-        }
-    }
-
-});
-
-/***/ }),
-/* 137 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "calendar-day"
-  }, [(_vm.isActive && _vm.isVisible) ? _c('button', {
-    class: ("calendar-day__active-day" + (_vm.isSelected === true ? ' day-selected' : '') + (_vm.isInRange === true ? ' day-in-range' : '')),
-    on: {
-      "click": _vm.onClick
-    }
-  }, [_vm._v(_vm._s(_vm.day.format('DD')))]) : _vm._e(), _vm._v(" "), (!_vm.isVisible) ? _c('div', {
-    staticClass: "calendar-day__invisible-day"
-  }) : _vm._e(), _vm._v(" "), (!_vm.isActive && _vm.isVisible) ? _c('div', {
-    staticClass: "calendar-day__inactive-day"
-  }, [_vm._v(_vm._s(_vm.day.format('DD')))]) : _vm._e()])
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-f186896a", module.exports)
-  }
-}
-
-/***/ }),
-/* 138 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    class: ("calendar-month" + (_vm.visible == true ? '' : ' calendar-month--invisible'))
-  }, [_c('div', {
-    staticClass: "calendar-month__header"
-  }, [_vm._v("\n        " + _vm._s(this.startDate.format('MMMM')) + "\n        " + _vm._s(this.startDate.format('YYYY')) + "\n    ")]), _vm._v(" "), _c('div', {
-    staticClass: "calendar-month__days-header"
-  }, _vm._l((_vm.weekdays), function(weekday) {
-    return _c('div', {
-      staticClass: "calendar-month__weekday"
-    }, [_vm._v(_vm._s(weekday))])
-  })), _vm._v(" "), _c('div', {
-    staticClass: "calendar-month__days"
-  }, _vm._l((_vm.calendarDays), function(calendarDay, i) {
-    return _c('calendar-day', {
-      key: ("day-" + i),
-      attrs: {
-        "is-active": _vm.isDayValid(calendarDay),
-        "is-visible": _vm.isDayVisible(calendarDay),
-        "day": calendarDay
-      }
-    })
-  }))])
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-7f464322", module.exports)
-  }
-}
-
-/***/ }),
-/* 139 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "datepicker-container"
-  }, [_c('div', {
-    staticClass: "calendar-container",
-    style: (("width: " + (_vm.global.visibleMonths * 7 * 30 + 40) + "px"))
-  }, [_c('div', {
-    staticClass: "calendar-months-container"
-  }, _vm._l((parseInt(_vm.global.maxMonths)), function(i) {
-    return _c('calendar-month', {
-      key: ("month-" + i),
-      attrs: {
-        "startDate": _vm.dates.start.startOf('month').clone().add((i - 1), 'month'),
-        "visible": true
-      }
-    })
-  })), _vm._v(" "), _c('button', {
-    staticClass: "calendar-nav-btn prev",
-    on: {
-      "click": _vm.onPrevButtonClick
-    }
-  }), _vm._v(" "), _c('button', {
-    staticClass: "calendar-nav-btn next",
-    on: {
-      "click": _vm.onNextButtonClick
-    }
-  })])])
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-41285b9f", module.exports)
-  }
-}
-
-/***/ }),
-/* 140 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "date-range-picker"
-  }, [_c('date-input-field', {
-    ref: "start-date-field",
-    attrs: {
-      "type": "start"
-    }
-  }), _vm._v(" "), _c('date-input-field', {
-    ref: "end-date-field",
-    attrs: {
-      "type": "end"
-    }
-  }), _vm._v(" "), (_vm.pickerOpen === true) ? _c('date-picker', {
-    ref: "date-picker"
-  }) : _vm._e()], 1)
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-dec4e3f0", module.exports)
-  }
-}
-
-/***/ }),
-/* 141 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 142 */,
-/* 143 */,
-/* 144 */,
-/* 145 */,
-/* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -34552,7 +34175,384 @@ if (_gsScope._gsDefine) { _gsScope._gsQueue.pop()(); } //necessary in case Tween
 		_tickerActive = false; //ensures that the first official animation forces a ticker.tick() to update the time when it is instantiated
 
 })((typeof(module) !== "undefined" && module.exports && typeof(global) !== "undefined") ? global : this || window, "TweenMax");
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(120)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+
+/***/ }),
+/* 134 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var Component = __webpack_require__(1)(
+  /* script */
+  __webpack_require__(135),
+  /* template */
+  __webpack_require__(139),
+  /* styles */
+  null,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/mnt/c/develop/modules/vue-daterangepicker/src/js/components/elements/CalendarMonth.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] CalendarMonth.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-7f464322", Component.options)
+  } else {
+    hotAPI.reload("data-v-7f464322", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 135 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__CalendarDay_vue__ = __webpack_require__(136);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__CalendarDay_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__CalendarDay_vue__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+
+    components: {
+        CalendarDay: __WEBPACK_IMPORTED_MODULE_1__CalendarDay_vue___default.a
+    },
+
+    props: ['startDate', 'visible'],
+
+    data: function data() {
+        return {
+            calendarDays: [],
+            weekdays: __WEBPACK_IMPORTED_MODULE_0_moment__["weekdaysMin"](true)
+        };
+    },
+    created: function created() {
+        var startDay = __WEBPACK_IMPORTED_MODULE_0_moment__(this.startDate.clone().startOf('week'));
+        var endDay = __WEBPACK_IMPORTED_MODULE_0_moment__(__WEBPACK_IMPORTED_MODULE_0_moment__(this.startDate.clone().endOf('month')).endOf('week'));
+
+        var currentDay = startDay;
+
+        while (currentDay.isBefore(endDay)) {
+            this.calendarDays.push(currentDay);
+            currentDay = currentDay.clone().add(1, 'days');
+        }
+    },
+
+
+    methods: {
+        isDayValid: function isDayValid(day) {
+            var isValid = this.$parent.$parent.isValidDate(day);
+
+            if (isValid) isValid = __WEBPACK_IMPORTED_MODULE_0_moment__(day).isAfter(__WEBPACK_IMPORTED_MODULE_0_moment__());
+
+            return isValid;
+        },
+        isDayVisible: function isDayVisible(day) {
+            var isVisible = __WEBPACK_IMPORTED_MODULE_0_moment__(day).isAfter(__WEBPACK_IMPORTED_MODULE_0_moment__(this.startDate.startOf('month')).subtract(1, 'days'));
+
+            if (isVisible) isVisible = __WEBPACK_IMPORTED_MODULE_0_moment__(day).isBefore(this.startDate.endOf('month'));
+
+            return isVisible;
+        }
+    }
+
+});
+
+/***/ }),
+/* 136 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var Component = __webpack_require__(1)(
+  /* script */
+  __webpack_require__(137),
+  /* template */
+  __webpack_require__(138),
+  /* styles */
+  null,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/mnt/c/develop/modules/vue-daterangepicker/src/js/components/elements/CalendarDay.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] CalendarDay.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-f186896a", Component.options)
+  } else {
+    hotAPI.reload("data-v-f186896a", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 137 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_moment__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+
+    store: ['global', 'dates', 'selection'],
+
+    props: ['day', 'isActive', 'isVisible'],
+
+    computed: {
+        isSelected: function isSelected() {
+            if (this.selection.start === null && this.selection.end === null) return false;
+
+            if (this.selection.start !== null && this.selection.start.clone().startOf('day').isSame(this.day)) return true;
+            if (this.selection.end !== null && this.selection.end.clone().startOf('day').isSame(this.day)) return true;
+
+            return false;
+        },
+        isInRange: function isInRange() {
+            if (this.selection.start === null) return false;
+            if (this.selection.end === null) return false;
+
+            return this.day.isAfter(this.selection.start) && this.day.isBefore(this.selection.end);
+        }
+    },
+
+    created: function created() {},
+
+
+    methods: {
+        onClick: function onClick(e) {
+            if (this.selection.current === null) return;
+
+            if (this.day.isBefore(this.selection.start)) {
+                this.selection.start = this.day.clone();
+                return;
+            }
+
+            if (this.selection.current === 'start' && this.day.isAfter(this.selection.end)) {
+                this.selection.current = 'end';
+                this.selection.start = this.day.clone();
+                this.selection.end = this.day.clone().add(1, 'days');
+                return;
+            }
+
+            if (this.selection.current === 'start') {
+                this.selection.start = this.day.clone();
+                this.selection.current = 'end';
+                return;
+            }
+
+            if (this.selection.current === 'end') {
+                this.selection.end = this.day.clone();
+                this.$parent.$parent.$parent.pickerOpen = false;
+                return;
+            }
+        }
+    }
+
+});
+
+/***/ }),
+/* 138 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "calendar-day"
+  }, [(_vm.isActive && _vm.isVisible) ? _c('button', {
+    class: ("calendar-day__active-day" + (_vm.isSelected === true ? ' day-selected' : '') + (_vm.isInRange === true ? ' day-in-range' : '')),
+    on: {
+      "click": _vm.onClick
+    }
+  }, [_vm._v(_vm._s(_vm.day.format('DD')))]) : _vm._e(), _vm._v(" "), (!_vm.isVisible) ? _c('div', {
+    staticClass: "calendar-day__invisible-day"
+  }) : _vm._e(), _vm._v(" "), (!_vm.isActive && _vm.isVisible) ? _c('div', {
+    staticClass: "calendar-day__inactive-day"
+  }, [_vm._v(_vm._s(_vm.day.format('DD')))]) : _vm._e()])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-f186896a", module.exports)
+  }
+}
+
+/***/ }),
+/* 139 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    class: ("calendar-month" + (_vm.visible == true ? '' : ' calendar-month--invisible'))
+  }, [_c('div', {
+    staticClass: "calendar-month__header"
+  }, [_vm._v("\n        " + _vm._s(this.startDate.format('MMMM')) + "\n        " + _vm._s(this.startDate.format('YYYY')) + "\n    ")]), _vm._v(" "), _c('div', {
+    staticClass: "calendar-month__days-header"
+  }, _vm._l((_vm.weekdays), function(weekday) {
+    return _c('div', {
+      staticClass: "calendar-month__weekday"
+    }, [_vm._v(_vm._s(weekday))])
+  })), _vm._v(" "), _c('div', {
+    staticClass: "calendar-month__days"
+  }, _vm._l((_vm.calendarDays), function(calendarDay, i) {
+    return _c('calendar-day', {
+      key: ("day-" + i),
+      attrs: {
+        "is-active": _vm.isDayValid(calendarDay),
+        "is-visible": _vm.isDayVisible(calendarDay),
+        "day": calendarDay
+      }
+    })
+  }))])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-7f464322", module.exports)
+  }
+}
+
+/***/ }),
+/* 140 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "datepicker-container"
+  }, [_c('div', {
+    staticClass: "calendar-container",
+    style: (("width: " + (_vm.global.visibleMonths * 7 * 30 + 40) + "px"))
+  }, [_c('div', {
+    staticClass: "calendar-months-container"
+  }, _vm._l((parseInt(_vm.global.maxMonths)), function(i) {
+    return _c('calendar-month', {
+      key: ("month-" + i),
+      attrs: {
+        "startDate": _vm.dates.start.startOf('month').clone().add((i - 1), 'month'),
+        "visible": true
+      }
+    })
+  })), _vm._v(" "), _c('button', {
+    staticClass: "calendar-nav-btn prev",
+    on: {
+      "click": _vm.onPrevButtonClick
+    }
+  }), _vm._v(" "), _c('button', {
+    staticClass: "calendar-nav-btn next",
+    on: {
+      "click": _vm.onNextButtonClick
+    }
+  })])])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-41285b9f", module.exports)
+  }
+}
+
+/***/ }),
+/* 141 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "date-range-picker"
+  }, [_c('date-input-field', {
+    ref: "start-date-field",
+    attrs: {
+      "type": "start"
+    }
+  }), _vm._v(" "), _c('date-input-field', {
+    ref: "end-date-field",
+    attrs: {
+      "type": "end"
+    }
+  }), _vm._v(" "), (_vm.pickerOpen === true) ? _c('date-picker', {
+    ref: "date-picker"
+  }) : _vm._e()], 1)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-dec4e3f0", module.exports)
+  }
+}
+
+/***/ }),
+/* 142 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

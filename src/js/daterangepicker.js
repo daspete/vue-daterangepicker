@@ -7,28 +7,35 @@ require('./init');
 
 import DateRangePicker from './components/DateRangePicker.vue';
 
-const drp = new Vue({
-    el: '.daterangepicker',
-    components: { DateRangePicker },
-    data(){
-        return {
-            store: {
-                global: {
-                    maxMonths: 18,
-                    visibleMonths: 2
-                },
-                dates: {
-                    start: null,
-                    end: null,
-                    invalid: []
-                },
-                selection: {
-                    current: null,
-                    start: null,
-                    end: null
+
+var containers = document.getElementsByClassName('daterangepicker');
+
+for(var i = 0; i < containers.length; i++){
+    var drp = new Vue({
+        el: containers[i],
+        components: { DateRangePicker },
+        data(){
+            return {
+                store: {
+                    global: {
+                        maxMonths: 18,
+                        visibleMonths: 2
+                    },
+                    dates: {
+                        start: null,
+                        end: null,
+                        invalid: []
+                    },
+                    selection: {
+                        current: null,
+                        start: null,
+                        end: null
+                    }
                 }
             }
         }
-    }
-});
+    });
+}
+
+
 
