@@ -1,10 +1,9 @@
 <template>
     <div class="calendar-day">
-        <button v-if="isActive && isVisible" :class="`calendar-day__active-day${isSelected === true ? ' day-selected' : ''}${isInRange === true ? ' day-in-range' : ''}`" v-on:click="onClick">{{ day.format('DD') }}</button>
+        <button type="button" v-if="isActive && isVisible" :class="`calendar-day__active-day${isSelected === true ? ' day-selected' : ''}${isInRange === true ? ' day-in-range' : ''}`" v-on:click="onClick">{{ day.format('DD') }}</button>
         <div v-if="!isVisible" class="calendar-day__invisible-day"></div>
         <div v-if="!isActive && isVisible" class="calendar-day__inactive-day">{{ day.format('DD') }}</div>
     </div>
-    
 </template>
 
 <script>
@@ -50,18 +49,6 @@
             onClick(e){
                 if(this.selection.current === null) return;
 
-                if(this.day.isBefore(this.selection.start)){
-                    this.selection.start = this.day.clone();
-                    return;
-                }
-
-                if(this.selection.current === 'start' && this.day.isAfter(this.selection.end)){
-                    this.selection.current = 'end';
-                    this.selection.start = this.day.clone();
-                    this.selection.end = this.day.clone().add(1, 'days');
-                    return;
-                }
-
                 if(this.selection.current === 'start'){
                     this.selection.start = this.day.clone();
                     this.selection.current = 'end';
@@ -70,8 +57,7 @@
 
                 if(this.selection.current === 'end'){
                     this.selection.end = this.day.clone();
-                    this.$parent.$parent.$parent.pickerOpen = false;
-                    return;
+                    this.$parent.$parent.$parent.closeDatePicker();
                 }
             }
         }

@@ -5,6 +5,8 @@
             <date-input-field type="end" ref="end-date-field"></date-input-field>
         </div>
         
+        <div class="datepicker-underlay" v-if="pickerOpen === true" v-on:click="closeDatePicker"></div>
+
         <date-picker v-if="pickerOpen === true" ref="date-picker"></date-picker>
     </div>
 </template>
@@ -29,9 +31,10 @@
         },
 
         props: [
+            'instanceName',
+            'selectionCallback',
             'visibleMonthCount',
             'maxMonthCount',
-            'instanceName',
             'invalidDates'
         ],
 
@@ -47,7 +50,6 @@
         created(){
             this.global.maxMonths = typeof this.maxMonthCount === 'undefined' ? this.global.maxMonths : this.maxMonthCount;
             this.global.visibleMonths = typeof this.visibleMonthCount === 'undefined' ? this.global.visibleMonths : this.visibleMonthCount;
-            
 
             this.dates.start = typeof this.startDate === 'undefined' || this.startDate === '' ? moment().add(1, 'days') : this.startDate;
             this.dates.end = typeof this.endDate === 'undefined' || this.endDate === '' ? moment().add(3, 'days') : this.endDate;
@@ -61,7 +63,7 @@
 
             window.addEventListener('keydown', (e) => {
                 if(e.keyCode === 27){
-                    this.pickerOpen = false;
+                    this.closeDatePicker();
                 }
             });
         },
@@ -73,17 +75,30 @@
             },
 
             isValidDate(day){
-                for(var i = 0; i < this.dates.invalid.length; i++){
-                    var invalidDate = moment(this.dates.invalid[i]);
+                var formattedDay = day.format('YYYY-MM-DD');
 
+                return !this.dates.invalid.find(function(d){
+                    return d == formattedDay;
+                });
+            },
 
+            closeDatePicker(){
+                this.selection.current = null;
+                this.pickerOpen = false;
 
-                    if(day.isSame(invalidDate, 'day')){
-                        return false;
+                if(this.selection.start !== null && this.selection.end !== null){
+                    if(this.selection.start.isAfter(this.selection.end)){
+                        var start = this.selection.start.clone();
+                        this.selection.start = this.selection.end.clone();
+                        this.selection.end = start;
                     }
                 }
-
-                return true;
+                
+                if(typeof this.$props.selectionCallback !== 'undefined'){
+                    if(typeof window[this.$props.selectionCallback] !== 'undefined'){
+                        window[this.$props.selectionCallback](this.selection.start, this.selection.end);
+                    }
+                }
             }
         }
     }

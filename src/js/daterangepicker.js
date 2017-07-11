@@ -19,7 +19,8 @@ for(var i = 0; i < containers.length; i++){
                 store: {
                     global: {
                         maxMonths: 18,
-                        visibleMonths: 2
+                        visibleMonths: 2,
+                        currentOffset: 0
                     },
                     dates: {
                         start: null,

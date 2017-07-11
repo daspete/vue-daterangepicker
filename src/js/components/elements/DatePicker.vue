@@ -8,8 +8,8 @@
                     :key="`month-${i}`">
                 </calendar-month>
             </div>
-            <button class="calendar-nav-btn prev" v-on:click="onPrevButtonClick"></button>
-            <button class="calendar-nav-btn next" v-on:click="onNextButtonClick"></button>
+            <button type="button" class="calendar-nav-btn prev" v-on:click="onPrevButtonClick"></button>
+            <button type="button" class="calendar-nav-btn next" v-on:click="onNextButtonClick"></button>
         </div>
     </div>
 </template>
@@ -42,15 +42,27 @@
 
         },
 
+        mounted(){
+            this.currentPage = this.global.currentOffset;
+
+            TweenMax.set('.calendar-months-container', {
+                x: -(this.currentPage * (this.global.visibleMonths * 7 * 30 + 40))
+            });
+        },
+
         methods: {
             onPrevButtonClick(){
                 this.currentPage = Math.max(0, this.currentPage - 1);
+
+                this.global.currentOffset = this.currentPage;
 
                 this.animateToCurrentPage();
             },
 
             onNextButtonClick(){
                 this.currentPage = Math.min(parseInt(this.global.maxMonths / this.global.visibleMonths) - 1, this.currentPage + 1);
+
+                this.global.currentOffset = this.currentPage;
 
                 this.animateToCurrentPage();
             },
