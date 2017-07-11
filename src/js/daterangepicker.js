@@ -21,6 +21,11 @@ const drp = new Vue({
                     start: null,
                     end: null,
                     invalid: []
+                },
+                selection: {
+                    current: null,
+                    start: null,
+                    end: null
                 }
             }
         }

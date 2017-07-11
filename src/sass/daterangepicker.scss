@@ -1,4 +1,13 @@
+$calendarFontColor: #454556;
+$calendarBackgroundColor: #dedede;
+$calendarActiveColor: #f90;
+$calendarInRangeColor: lighten($calendarActiveColor, 20%);
+
 $calendarCellDimension: 30px;
+$calendarDayBorder: 1px solid darken($calendarBackgroundColor, 20%);
+$calendarDayBackgroundColor: darken($calendarBackgroundColor, 10%);
+
+
 
 .calendar-label {
     display: block;
@@ -8,12 +17,58 @@ $calendarCellDimension: 30px;
     overflow: hidden;
 }
 
+.calendar-container {
+    height: $calendarCellDimension * 9;
+    overflow: hidden;
+    position: absolute;
+    background-color: $calendarBackgroundColor;
+
+    .calendar-nav-btn {
+        position: absolute;
+        display: block;
+        width: 20px;
+        height: 20px;
+        top: 15px;
+
+        &:after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        &.prev {
+            left: 15px;
+
+            &:after {
+                content: '<';
+            }
+        }
+
+        &.next {
+            right: 15px;
+
+            &:after {
+                content: '>';
+            }
+        }
+    }
+}
+
+.calendar-months-container {
+    width: $calendarCellDimension * 7 * 20;
+    height: $calendarCellDimension * 8;
+}
+
 .calendar-month {
     width: $calendarCellDimension * 7;
-    height: $calendarCellDimension * 7;
+    height: $calendarCellDimension * 8;
     margin: 10px;
     display: inline-block;
-    background-color: #fcfcfc;
+    background-color: lighten($calendarBackgroundColor, 5%);
 
     &--invisible {
         display: none;
@@ -24,34 +79,79 @@ $calendarCellDimension: 30px;
         font-size: 1.2rem;
         text-align: center;
         padding: 4px;
-        background-color: #ccc;
+        background-color: darken($calendarBackgroundColor, 40%);
+    }
+
+    &__days-header {
+        font-weight: 400;
+        font-size: 1rem;
+        text-align: center;
+        background-color: darken($calendarBackgroundColor, 30%);
+    }
+
+    &__weekday {
+        position: relative;
+        display: block;
+        float:left;
+        width: $calendarCellDimension;
+        height: $calendarCellDimension;
+        overflow: hidden;
+        font-size: 10px;
+        text-align: center;
+        line-height: $calendarCellDimension;
     }
 }
 
 .calendar-day {
+    position: relative;
     display: block;
     float:left;
     width: $calendarCellDimension;
     height: $calendarCellDimension;
     overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #eee;
-    font-size: 10px;
-    cursor: pointer;
+    
 
-    &--inactive {
-        border: 1px solid #eee;
-        background-color: #fff;
-        color: #777;
-        cursor: not-allowed;
-    }
-    &--invisible {
-        opacity: 0;
+    &__active-day {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        border: $calendarDayBorder;
+        background-color: $calendarDayBackgroundColor;
+        font-size: 10px;
+        cursor: pointer;
+        outline: none;
+
+        &.day-selected {
+            background-color: $calendarActiveColor;
+            border: 1px solid darken($calendarActiveColor, 5%);
+        }
+
+        &.day-in-range {
+            background-color: $calendarInRangeColor;
+            border: 1px solid darken($calendarInRangeColor, 20%);
+        }
     }
 
-    &.invisible {
+    &__invisible-day {
+        
+    }
+
+    &__inactive-day {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 100%;
         border: 1px solid rgba(0,0,0,0);
-        background-color: transparent;
-        cursor: default;
+        background-color: rgba(0,0,0,0);
+        font-size: 10px;
+        cursor: pointer;
+        text-align: center;
+        line-height: $calendarCellDimension;
+        cursor: not-allowed;
+        opacity: 0.6;
     }
+
 }

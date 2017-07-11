@@ -1,6 +1,6 @@
 <template>
     <div class="date-input-field-container">
-        <input type="text" :value="dates[type].format('DD.MM.YYYY')" :name="`date-input-${type}`" v-on:click="onClicked">
+        <input type="text" :value="(selection[type] === null ? dates : selection)[type].format('DD.MM.YYYY')" :name="`date-input-${type}`" v-on:click="onClicked">
     </div>
 </template>
 
@@ -9,7 +9,11 @@
 
     export default {
 
-        store: [ 'dates' ],
+        store: [ 
+            'global', 
+            'dates', 
+            'selection' 
+        ],
 
         props: [
             'type'

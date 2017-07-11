@@ -15,7 +15,11 @@
 
     export default {
 
-        store: [ 'global', 'dates' ],
+        store: [ 
+            'global', 
+            'dates', 
+            'selection' 
+        ],
 
         components: {
             DateInputField,
@@ -25,11 +29,8 @@
         props: [
             'visibleMonthCount',
             'maxMonthCount',
-            //'pickerStartDate',
-            //'pickerEndDate',
             'instanceName',
             'invalidDates'
-            //'pickerInvalidDates'
         ],
 
         data(){
@@ -37,10 +38,7 @@
 
             return {
                 pickerOpen: false,
-                dateType: false//,
-                //invalidDates: this.pickerInvalidDates === '' ? [] : JSON.parse(this.pickerInvalidDates),
-                //startDate: moment(this.pickerStartDate === '' ? moment().add(1, 'days') : this.pickerStartDate),
-                //endDate: moment(this.pickerEndDate === '' ? moment().add(3, 'days') : this.pickerEndDate)
+                dateType: false
             };
         },
 
@@ -52,6 +50,9 @@
             this.dates.start = typeof this.startDate === 'undefined' || this.startDate === '' ? moment().add(1, 'days') : this.startDate;
             this.dates.end = typeof this.endDate === 'undefined' || this.endDate === '' ? moment().add(3, 'days') : this.endDate;
             this.dates.invalid = typeof this.invalidDates === 'undefined' || this.invalidDates === '' ? [] : JSON.parse(this.invalidDates);
+
+            this.selection.start = this.dates.start.clone();
+            this.selection.end = this.dates.end.clone();
 
             window.DateRangePickers = window.DateRangePickers || {};
             window.DateRangePickers[this.instanceName] = this;
@@ -65,7 +66,7 @@
 
         methods: {
             onDateInputFieldClicked(dateType){
-                this.dateType = dateType;
+                this.selection.current = dateType;
                 this.pickerOpen = true;
             },
 

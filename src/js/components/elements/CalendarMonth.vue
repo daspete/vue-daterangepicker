@@ -4,6 +4,9 @@
             {{ this.startDate.format('MMMM') }}
             {{ this.startDate.format('YYYY') }}
         </div>
+        <div class="calendar-month__days-header">
+            <div class="calendar-month__weekday" v-for="weekday in weekdays">{{ weekday }}</div>
+        </div>
         <div class="calendar-month__days">
             <calendar-day v-for="(calendarDay, i) in calendarDays" 
                 :is-active="isDayValid(calendarDay)"
@@ -34,7 +37,8 @@
 
         data(){
             return {
-                calendarDays: []
+                calendarDays: [],
+                weekdays: moment.weekdaysMin(true)
             };
         },
 
@@ -57,14 +61,6 @@
                 if(isValid)
                     isValid = moment(day).isAfter(moment());
                 
-                /*
-                if(isValid)
-                    isValid = moment(day).isAfter(moment(this.startDate.startOf('month')).subtract(1, 'days'));
-
-                if(isValid)
-                    isValid = moment(day).isBefore(this.startDate.endOf('month'));
-                */
-
                 return isValid;
             },
 

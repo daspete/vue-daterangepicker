@@ -6,12 +6,58 @@
   overflow: hidden;
 }
 
+.calendar-container {
+  height: 270px;
+  overflow: hidden;
+  position: absolute;
+  background-color: #dedede;
+}
+
+.calendar-container .calendar-nav-btn {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 20px;
+  top: 15px;
+}
+
+.calendar-container .calendar-nav-btn:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  font-size: 14px;
+}
+
+.calendar-container .calendar-nav-btn.prev {
+  left: 15px;
+}
+
+.calendar-container .calendar-nav-btn.prev:after {
+  content: '<';
+}
+
+.calendar-container .calendar-nav-btn.next {
+  right: 15px;
+}
+
+.calendar-container .calendar-nav-btn.next:after {
+  content: '>';
+}
+
+.calendar-months-container {
+  width: 4200px;
+  height: 240px;
+}
+
 .calendar-month {
   width: 210px;
-  height: 210px;
+  height: 240px;
   margin: 10px;
   display: inline-block;
-  background-color: #fcfcfc;
+  background-color: #ebebeb;
 }
 
 .calendar-month--invisible {
@@ -23,35 +69,73 @@
   font-size: 1.2rem;
   text-align: center;
   padding: 4px;
-  background-color: #ccc;
+  background-color: #787878;
 }
 
-.calendar-day {
+.calendar-month__days-header {
+  font-weight: 400;
+  font-size: 1rem;
+  text-align: center;
+  background-color: #929191;
+}
+
+.calendar-month__weekday {
+  position: relative;
   display: block;
   float: left;
   width: 30px;
   height: 30px;
   overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #eee;
+  font-size: 10px;
+  text-align: center;
+  line-height: 30px;
+}
+
+.calendar-day {
+  position: relative;
+  display: block;
+  float: left;
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+}
+
+.calendar-day__active-day {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  border: 1px solid #ababab;
+  background-color: #c5c4c4;
   font-size: 10px;
   cursor: pointer;
+  outline: none;
 }
 
-.calendar-day--inactive {
-  border: 1px solid #eee;
-  background-color: #fff;
-  color: #777;
-  cursor: not-allowed;
+.calendar-day__active-day.day-selected {
+  background-color: #f90;
+  border: 1px solid #e68a00;
 }
 
-.calendar-day--invisible {
-  opacity: 0;
+.calendar-day__active-day.day-in-range {
+  background-color: #ffc266;
+  border: 1px solid #ff9900;
 }
 
-.calendar-day.invisible {
+.calendar-day__inactive-day {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
   border: 1px solid transparent;
   background-color: transparent;
-  cursor: default;
+  font-size: 10px;
+  cursor: pointer;
+  text-align: center;
+  line-height: 30px;
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 
