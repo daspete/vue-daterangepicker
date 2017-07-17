@@ -33,9 +33,12 @@
         props: [
             'instanceName',
             'selectionCallback',
+            'initCallback',
             'visibleMonthCount',
             'maxMonthCount',
-            'invalidDates'
+            'invalidDates',
+            'startDate',
+            'endDate'
         ],
 
         data(){
@@ -51,12 +54,16 @@
             this.global.maxMonths = typeof this.maxMonthCount === 'undefined' ? this.global.maxMonths : this.maxMonthCount;
             this.global.visibleMonths = typeof this.visibleMonthCount === 'undefined' ? this.global.visibleMonths : this.visibleMonthCount;
 
-            this.dates.start = typeof this.startDate === 'undefined' || this.startDate === '' ? moment().add(1, 'days') : this.startDate;
-            this.dates.end = typeof this.endDate === 'undefined' || this.endDate === '' ? moment().add(3, 'days') : this.endDate;
+            this.dates.start = moment().add(1, 'days');//typeof this.startDate === 'undefined' || this.startDate === '' ? moment().add(1, 'days') : this.startDate;
+            this.dates.end = moment().add(3, 'days');//typeof this.endDate === 'undefined' || this.endDate === '' ? moment().add(3, 'days') : this.endDate;
             this.dates.invalid = typeof this.invalidDates === 'undefined' || this.invalidDates === '' ? [] : JSON.parse(this.invalidDates);
 
-            this.selection.start = this.dates.start.clone();
-            this.selection.end = this.dates.end.clone();
+            this.selection.start = typeof this.startDate === 'undefined' || this.startDate === '' ? this.dates.start.clone() : moment(this.startDate);//this.dates.start.clone();
+            this.selection.end = typeof this.endDate === 'undefined' || this.endDate === '' ? this.dates.end.clone() : moment(this.endDate);//this.dates.end.clone();
+
+            var monthDiff = this.selection.start.diff(this.dates.start, 'months', true);
+            var page = Math.round(monthDiff / this.global.visibleMonths);
+            this.global.currentOffset = page;
 
             window.DateRangePickers = window.DateRangePickers || {};
             window.DateRangePickers[this.instanceName] = this;
@@ -66,6 +73,14 @@
                     this.closeDatePicker();
                 }
             });
+        },
+
+        mounted(){
+            if(typeof this.initCallback !== 'undefined'){
+                if(typeof window[this.initCallback] !== 'undefined'){
+                    window[this.initCallback](this);
+                }
+            }
         },
 
         methods: {
@@ -94,9 +109,9 @@
                     }
                 }
                 
-                if(typeof this.$props.selectionCallback !== 'undefined'){
-                    if(typeof window[this.$props.selectionCallback] !== 'undefined'){
-                        window[this.$props.selectionCallback](this.selection.start, this.selection.end);
+                if(typeof this.selectionCallback !== 'undefined'){
+                    if(typeof window[this.selectionCallback] !== 'undefined'){
+                        window[this.selectionCallback](this.selection.start, this.selection.end);
                     }
                 }
             }
