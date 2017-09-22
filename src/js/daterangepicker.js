@@ -20,7 +20,11 @@ for(var i = 0; i < containers.length; i++){
                     global: {
                         maxMonths: 18,
                         visibleMonths: 2,
-                        currentOffset: 0
+                        currentOffset: 0,
+                        placeholders: {
+                            start: '',
+                            end: ''
+                        }
                     },
                     dates: {
                         start: null,

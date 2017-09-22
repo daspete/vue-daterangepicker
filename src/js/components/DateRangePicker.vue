@@ -38,11 +38,14 @@
             'maxMonthCount',
             'invalidDates',
             'startDate',
-            'endDate'
+            'endDate',
+            'language',
+            'startPlaceholder',
+            'endPlaceholder'
         ],
 
         data(){
-            moment.locale('de');
+            moment.locale(this.language);
 
             return {
                 pickerOpen: false,
@@ -54,15 +57,38 @@
             this.global.maxMonths = typeof this.maxMonthCount === 'undefined' ? this.global.maxMonths : this.maxMonthCount;
             this.global.visibleMonths = typeof this.visibleMonthCount === 'undefined' ? this.global.visibleMonths : this.visibleMonthCount;
 
+            if(typeof this.startPlaceholder !== 'undefined'){
+                this.global.placeholders.start = this.startPlaceholder;
+            }
+
+            if(typeof this.endPlaceholder !== 'undefined'){
+                this.global.placeholders.end = this.endPlaceholder;
+            }
+
+
             this.dates.start = moment().add(1, 'days');//typeof this.startDate === 'undefined' || this.startDate === '' ? moment().add(1, 'days') : this.startDate;
             this.dates.end = moment().add(3, 'days');//typeof this.endDate === 'undefined' || this.endDate === '' ? moment().add(3, 'days') : this.endDate;
+
+            if(typeof this.startDate !== 'undefined'){
+                this.dates.start = moment(this.startDate).clone();
+            }
+            if(typeof this.endDate !== 'undefined'){
+                this.dates.end = moment(this.endDate).clone();
+            }
+
             this.dates.invalid = typeof this.invalidDates === 'undefined' || this.invalidDates === '' ? [] : JSON.parse(this.invalidDates);
 
-            this.selection.start = typeof this.startDate === 'undefined' || this.startDate === '' ? this.dates.start.clone() : moment(this.startDate);//this.dates.start.clone();
-            this.selection.end = typeof this.endDate === 'undefined' || this.endDate === '' ? this.dates.end.clone() : moment(this.endDate);//this.dates.end.clone();
+            this.selection.start = typeof this.startDate === 'undefined' || this.startDate === '' ? null : this.dates.start.clone();// : null;//moment(this.startDate);//this.dates.start.clone();
+            this.selection.end = typeof this.endDate === 'undefined' || this.endDate === '' ? null : this.dates.end.clone();//moment(this.endDate);//this.dates.end.clone();
 
-            var monthDiff = this.selection.start.diff(this.dates.start, 'months', true);
-            var page = Math.round(monthDiff / this.global.visibleMonths);
+            var monthDiff = 0;
+            var page = 0;
+
+            if(this.selection.start != null){
+                monthDiff = this.selection.start.diff(this.dates.start, 'months', true);
+                page = Math.round(monthDiff / this.global.visibleMonths);
+            }
+            
             this.global.currentOffset = page;
 
             window.DateRangePickers = window.DateRangePickers || {};
@@ -97,10 +123,21 @@
                 });
             },
 
+            setDates(start, end){
+                this.selection.start = start;
+                this.selection.end = end;
+
+                this.checkDates();
+            },
+
             closeDatePicker(){
                 this.selection.current = null;
                 this.pickerOpen = false;
 
+                this.checkDates();
+            },
+
+            checkDates(){
                 if(this.selection.start !== null && this.selection.end !== null){
                     if(this.selection.start.isAfter(this.selection.end)){
                         var start = this.selection.start.clone();

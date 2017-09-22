@@ -1,6 +1,6 @@
 <template>
     <div class="datepicker-container">
-        <div class="calendar-container" :style="`width: ${global.visibleMonths * 7 * 30 + 40}px`">
+        <div :class="`calendar-container${ openUp == true ? ' open-up' : '' }${ openRight == true ? ' open-right':'' }`" :style="`width: ${global.visibleMonths * 7 * 30 + 40}px`">
             <div class="calendar-months-container">
                 <calendar-month v-for="i in parseInt(global.maxMonths)" 
                     :startDate="dates.start.startOf('month').clone().add((i - 1), 'month')"
@@ -34,15 +34,19 @@
 
         data(){
             return {
+                openUp: false,
+                openRight: false,
                 currentPage: 0
             };
         },
 
         created(){
-
+            this.checkDimensions();
         },
 
         mounted(){
+            this.checkDimensions();
+
             this.currentPage = this.global.currentOffset;
 
             TweenMax.set('.calendar-months-container', {
@@ -51,6 +55,30 @@
         },
 
         methods: {
+            checkDimensions(){
+                var height = window.innerHeight;
+                var width = window.innerWidth;
+
+                var rect = this.$parent.$el.getBoundingClientRect();
+                var calWidth = this.global.visibleMonths * 7 * 30 + 40;
+
+                var x = typeof rect.x === 'undefined' ? rect.left : rect.x;
+                var y = typeof rect.y === 'undefined' ? rect.top : rect.y;
+
+                if(x + calWidth > width){
+                    this.openRight = true;
+                }else{
+                    this.openRight = false;
+                }
+
+                if(y > height * 0.5){
+                    this.openUp = true;
+                }else{
+                    this.openUp = false;
+                }
+            },
+            
+
             onPrevButtonClick(){
                 this.currentPage = Math.max(0, this.currentPage - 1);
 

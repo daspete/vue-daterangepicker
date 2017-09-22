@@ -73,6 +73,14 @@ html, body {
     position: absolute;
     background-color: $calendarBackgroundColor;
 
+    &.open-up {
+        bottom: 2rem;
+    }
+
+    &.open-right {
+        right: 0;
+    }
+
     .calendar-nav-btn {
         position: absolute;
         display: block;

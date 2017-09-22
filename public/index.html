@@ -6,9 +6,31 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>DateRangePicker</title>
     <link rel="stylesheet" href="/assets/css/daterangepicker.css">
+    <style>
+        .bottom {
+            position: absolute;
+            bottom: -50%;
+            margin-bottom: 50vh;
+            width: 100vw;
+            left: 0;
+        }
+
+    </style>
 </head>
 <body>
     <div class="daterangepicker">
+        <date-range-picker 
+            instance-name="headerDatePicker"
+            selection-callback="onHeaderDatePickerDateSelected"
+            init-callback="onHeaderDatePickerInit"
+            visible-month-count="2"
+            max-month-count="12"
+            invalid-dates='["2017-07-08","2017-07-09","2017-07-10","2017-07-11","2017-07-12","2017-07-13","2017-07-14","2017-07-16","2017-07-17","2017-07-18","2017-07-20","2017-07-21","2017-07-23","2017-07-24","2017-07-25","2017-07-26","2017-07-27","2017-07-29","2017-07-30","2017-08-03","2017-08-04","2017-08-05","2017-08-06","2017-08-07","2017-08-08","2017-08-09","2017-08-10","2017-08-11","2017-08-12","2017-08-16","2017-08-17","2017-08-21","2017-08-22","2017-08-25","2017-08-26","2017-08-29","2017-08-30","2017-09-01","2017-09-02","2017-09-08","2017-09-09","2017-09-10","2017-09-11","2017-09-12","2017-09-21","2017-09-22","2017-09-23","2017-09-24","2017-09-25","2017-10-10","2017-10-11","2017-10-12","2017-10-25","2017-10-26","2017-12-20","2017-12-21","2017-12-22","2017-12-23","2017-12-24","2017-12-25","2017-12-26","2017-12-27","2017-12-28"]'
+            >
+        </date-range-picker>
+    </div>
+
+    <div class="daterangepicker bottom">
         <date-range-picker 
             instance-name="headerDatePicker"
             selection-callback="onHeaderDatePickerDateSelected"
@@ -32,6 +54,8 @@
             console.log(datepicker);
         }
     </script>
+
+    
     <script src="/assets/js/daterangepicker.js"></script>
     
 </body>
