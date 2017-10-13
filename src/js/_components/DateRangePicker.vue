@@ -1,29 +1,30 @@
 <template>
-
     <div class="date-range-picker">
         <div class="date-pickers-container">
             <date-input-field type="start" ref="start-date-field"></date-input-field>
             <date-input-field type="end" ref="end-date-field"></date-input-field>
         </div>
+        
+        <div class="datepicker-underlay" v-if="pickerOpen === true" v-on:click="closeDatePicker"></div>
 
-        <div class="datepicker-underlay" v-if="global.pickerOpen === true" v-on:click="closeDatePicker"></div>
-        <date-picker v-if="global.pickerOpen === true" ref="date-picker"></date-picker>
+        <date-picker v-if="pickerOpen === true" ref="date-picker"></date-picker>
     </div>
-
 </template>
 
 <script>
+    import DateInputField from './elements/DateInputField.vue';
+    import DatePicker from './elements/DatePicker.vue';
+
     import * as moment from 'moment';
 
-    import DateInputField from './elements/DateInputField.vue'
-    import DatePicker from './elements/DatePicker.vue'
-
     export default {
-        store: [
-            'global',
-            'dates',
-            'selection'
+
+        store: [ 
+            'global', 
+            'dates', 
+            'selection' 
         ],
+
         components: {
             DateInputField,
             DatePicker
@@ -44,15 +45,18 @@
         ],
 
         data(){
-            return {}
+            moment.locale(typeof this.language == 'undefined' ? 'de' : this.language);
+
+            return {
+                pickerOpen: false,
+                dateType: false
+            };
         },
 
         created(){
-            moment.locale(typeof this.language == 'undefined' ? 'de' : this.language);
-
             this.global.maxMonths = typeof this.maxMonthCount === 'undefined' ? this.global.maxMonths : this.maxMonthCount;
-
             this.global.visibleMonths = typeof this.visibleMonthCount === 'undefined' ? this.global.visibleMonths : this.visibleMonthCount;
+
             if(window.innerWidth < 576){
                 this.global.visibleMonths = 1;
             }
@@ -60,24 +64,37 @@
             if(typeof this.startPlaceholder !== 'undefined'){
                 this.global.placeholders.start = this.startPlaceholder;
             }
+
             if(typeof this.endPlaceholder !== 'undefined'){
                 this.global.placeholders.end = this.endPlaceholder;
             }
 
-            this.dates.start = moment().add(1, 'days');
-            this.dates.end = moment().add(3, 'days');
+
+            this.dates.start = moment().add(1, 'days');//typeof this.startDate === 'undefined' || this.startDate === '' ? moment().add(1, 'days') : this.startDate;
+            this.dates.end = moment().add(3, 'days');//typeof this.endDate === 'undefined' || this.endDate === '' ? moment().add(3, 'days') : this.endDate;
+
+
+            // if(typeof this.startDate !== 'undefined'){
+            //     this.selection.start = moment(this.startDate).clone();
+            // }
+            // if(typeof this.endDate !== 'undefined'){
+            //     this.selection.end = moment(this.endDate).clone();
+            // }
 
             this.dates.invalid = typeof this.invalidDates === 'undefined' || this.invalidDates === '' ? [] : JSON.parse(this.invalidDates);
 
-            this.selection.start = typeof this.startDate === 'undefined' || this.startDate === '' ? null : moment(this.startDate).clone();
-            this.selection.end = typeof this.endDate === 'undefined' || this.endDate === '' ? null : moment(this.endDate).clone();
+            this.selection.start = typeof this.startDate === 'undefined' || this.startDate === '' ? null : moment(this.startDate).clone();// : null;//moment(this.startDate);//this.dates.start.clone();
+            this.selection.end = typeof this.endDate === 'undefined' || this.endDate === '' ? null : moment(this.endDate).clone();//moment(this.endDate);//this.dates.end.clone();
 
             var monthDiff = 0;
             var page = 0;
+
             if(this.selection.start != null){
                 monthDiff = this.selection.start.diff(this.dates.start, 'months', true);
                 page = Math.round(monthDiff / this.global.visibleMonths);
+                console.log('page', page);
             }
+            
             this.global.currentOffset = page;
 
             window.DateRangePickers = window.DateRangePickers || {};
@@ -101,7 +118,15 @@
         methods: {
             onDateInputFieldClicked(dateType){
                 this.selection.current = dateType;
-                this.global.pickerOpen = true;
+                this.pickerOpen = true;
+            },
+
+            isValidDate(day){
+                var formattedDay = day.format('YYYY-MM-DD');
+
+                return !this.dates.invalid.find(function(d){
+                    return d == formattedDay;
+                });
             },
 
             setDates(start, end){
@@ -113,7 +138,7 @@
 
             closeDatePicker(){
                 this.selection.current = null;
-                this.global.pickerOpen = false;
+                this.pickerOpen = false;
 
                 this.checkDates();
             },

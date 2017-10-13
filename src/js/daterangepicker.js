@@ -18,6 +18,8 @@ for(var i = 0; i < containers.length; i++){
             return {
                 store: {
                     global: {
+                        pickerOpen: false,
+                        pickerType: false,
                         maxMonths: 18,
                         visibleMonths: 2,
                         currentOffset: 0,

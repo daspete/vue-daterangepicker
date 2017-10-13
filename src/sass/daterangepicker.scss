@@ -27,9 +27,19 @@ html, body {
         .date-input {
             padding: 5px;
             text-align: center;
+            background-color: rgba(#f90, 0);
+            transition: all 0.5s;
 
             &.current-date-input {
                 background-color: #f90;
+                transform: scale(1.2);
+            }
+
+            &.date-input-end {
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 48%;
             }
         }
     }
@@ -59,6 +69,49 @@ html, body {
     background-color: rgba(0,0,0,0.5);
 }
 
+.datepicker-container {
+    position: fixed;
+    width: 240px;
+    height: 325px;
+    top: 50%;
+    left: 50%;
+    margin-top: -160px;
+    margin-left: -120px;
+    background-color: #ccc;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+
+    .selection-header {
+        button {
+            display: block;
+            position: absolute;
+            width: 50%;
+            top: 5px;
+            border: 0;
+            padding: 5px 0;
+
+            &.active {
+                background-color: #f00;
+            }
+            
+
+            &.date-start {
+                left: 5px;    
+            }
+            &.date-end {
+                right: 5px;    
+            }
+        }
+    }
+
+    .step-container {
+        position: absolute;
+        top: 37px;
+        left: 5px;
+        right: 5px;
+        text-align: center;
+    }
+}
+
 .calendar-label {
     display: block;
     float:left;
@@ -68,18 +121,20 @@ html, body {
 }
 
 .calendar-container {
-    height: $calendarCellDimension * 9;
+    height: $calendarCellDimension * 9 - 7px;
     overflow: hidden;
     position: absolute;
     background-color: $calendarBackgroundColor;
+    top: 25px;
 
-    &.open-up {
-        bottom: 2rem;
-    }
 
-    &.open-right {
-        right: 0;
-    }
+    // &.open-up {
+    //     bottom: 2rem;
+    // }
+
+    // &.open-right {
+    //     right: 0;
+    // }
 
     .calendar-nav-btn {
         position: absolute;
@@ -180,6 +235,11 @@ html, body {
         font-size: 10px;
         cursor: pointer;
         outline: none;
+
+        &.day-in-range {
+            background-color: rgba($calendarActiveColor, 0.5);
+            border: 1px solid darken($calendarActiveColor, 5%);
+        }
 
         &.day-selected {
             background-color: $calendarActiveColor;

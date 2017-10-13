@@ -1,16 +1,19 @@
 <template>
     <div class="datepicker-container">
-        <div :class="`calendar-container${ openUp == true ? ' open-up' : '' }${ openRight == true ? ' open-right':'' }`" :style="`width: ${global.visibleMonths * 7 * 30 + 40}px`">
-            <div class="calendar-months-container">
-                <calendar-month v-for="i in parseInt(global.maxMonths)" 
-                    :startDate="dates.start.startOf('month').clone().add((i - 1), 'month')"
-                    :visible="true"
-                    :key="`month-${i}`">
-                </calendar-month>
-            </div>
-            <button type="button" class="calendar-nav-btn prev" v-on:click="onPrevButtonClick"></button>
-            <button type="button" class="calendar-nav-btn next" v-on:click="onNextButtonClick"></button>
+        <div class="selection-header">
+            <button v-on:click="setCurrentType('start')" :class="`date-start ${ selection.current == 'start' ? 'active' : '' }`">Check-In</button>
+            <button v-on:click="setCurrentType('end')" :class="`date-end ${ selection.current == 'end' ? 'active' : '' }`">Check-Out</button>
         </div>
+
+        <div :class="`step-container step-container--${selection.current}`">
+            <div class="header" v-if="selection.current == 'start'">Wann wollen Sie einchecken?</div>
+            <div class="header" v-if="selection.current == 'end'">Wann wollen Sie auschecken?</div>
+
+            <div class="datepicker-calendar">
+                <calendar></calendar>
+            </div>
+        </div>
+
     </div>
 </template>
 
@@ -18,87 +21,34 @@
     import * as moment from 'moment';
     import TweenMax from 'gsap';
 
-    import CalendarMonth from './CalendarMonth.vue';
+    import Calendar from './Calendar.vue'
 
     export default {
-
-        store: [ 
+        store: [
             'global', 
             'dates', 
-            'selection' 
+            'selection'
         ],
 
         components: {
-            CalendarMonth
+            Calendar
         },
 
         data(){
-            return {
-                openUp: false,
-                openRight: false,
-                currentPage: 0
-            };
+            return {}
         },
 
         created(){
-            this.checkDimensions();
+
         },
 
         mounted(){
-            this.checkDimensions();
 
-            this.currentPage = this.global.currentOffset;
-
-            TweenMax.set('.calendar-months-container', {
-                x: -(this.currentPage * (this.global.visibleMonths * 7 * 30 + 40))
-            });
         },
 
         methods: {
-            checkDimensions(){
-                var height = window.innerHeight;
-                var width = window.innerWidth;
-
-                var rect = this.$parent.$el.getBoundingClientRect();
-                var calWidth = this.global.visibleMonths * 7 * 30 + 40;
-
-                var x = typeof rect.x === 'undefined' ? rect.left : rect.x;
-                var y = typeof rect.y === 'undefined' ? rect.top : rect.y;
-
-                if(x + calWidth > width){
-                    this.openRight = true;
-                }else{
-                    this.openRight = false;
-                }
-
-                if(y > height * 0.5){
-                    this.openUp = true;
-                }else{
-                    this.openUp = false;
-                }
-            },
-            
-
-            onPrevButtonClick(){
-                this.currentPage = Math.max(0, this.currentPage - 1);
-
-                this.global.currentOffset = this.currentPage;
-
-                this.animateToCurrentPage();
-            },
-
-            onNextButtonClick(){
-                this.currentPage = Math.min(parseInt(this.global.maxMonths / this.global.visibleMonths) - 1, this.currentPage + 1);
-
-                this.global.currentOffset = this.currentPage;
-
-                this.animateToCurrentPage();
-            },
-
-            animateToCurrentPage(){
-                TweenMax.to('.calendar-months-container', 0.5, {
-                    x: -(this.currentPage * (this.global.visibleMonths * 7 * 30 + 40))
-                });
+            setCurrentType(type){
+                this.selection.current = type;
             }
         }
     }
