@@ -12,7 +12,7 @@
 
                 <div class="calendar-month__days">
                     <div class="calendar-day" v-for="(day, i) in days">
-                        <button 
+                        <button type="button"
                             v-if="isActive(day) && isVisible(day)"
                             :class="`calendar-day__active-day${isSelected(day) == true ? ' day-selected':''}${isInRange(day) == true ? ' day-in-range':''}`" 
                             v-on:click="selectDay(day)"

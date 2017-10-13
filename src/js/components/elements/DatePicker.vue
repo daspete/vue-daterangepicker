@@ -6,8 +6,8 @@
         </div>
 
         <div :class="`step-container step-container--${selection.current}`">
-            <div class="header" v-if="selection.current == 'start'">Wann wollen Sie einchecken?</div>
-            <div class="header" v-if="selection.current == 'end'">Wann wollen Sie auschecken?</div>
+            <div class="datepicker-header" v-if="selection.current == 'start'">Wann wollen Sie einchecken?</div>
+            <div class="datepicker-header" v-if="selection.current == 'end'">Wann wollen Sie auschecken?</div>
 
             <div class="datepicker-calendar">
                 <calendar></calendar>
