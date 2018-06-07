@@ -77,6 +77,7 @@
             if(this.selection.start != null){
                 monthDiff = this.selection.start.diff(this.dates.start, 'months', true);
                 page = Math.round(monthDiff / this.global.visibleMonths);
+                
             }
             this.global.currentOffset = page;
 

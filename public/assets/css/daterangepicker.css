@@ -1,1 +1,256 @@
-body,html{-webkit-box-sizing:border-box;box-sizing:border-box}*,:after,:before{-webkit-box-sizing:inherit;box-sizing:inherit}.date-pickers-container{position:relative;border:1px solid #ccc}.date-pickers-container .date-input-field-container{display:inline-block;width:48%}.date-pickers-container .date-input-field-container .date-input{padding:5px;text-align:center;background-color:rgba(255,153,0,0);-webkit-transition:all .5s;transition:all .5s}.date-pickers-container .date-input-field-container .date-input.current-date-input{background-color:#f90;-webkit-transform:scale(1.2);transform:scale(1.2)}.date-pickers-container .date-input-field-container .date-input.date-input-end{position:absolute;right:0;top:0;width:48%}.date-pickers-container:after{position:absolute;left:50%;top:50%;width:20px;height:20px;content:">";margin-top:-10px;margin-left:-10px;text-align:center;font-size:16px;line-height:20px}.datepicker-underlay{position:fixed;top:0;left:0;bottom:0;right:0;background-color:rgba(0,0,0,.5)}.datepicker-container{position:fixed;width:240px;height:325px;top:50%;left:50%;margin-top:-160px;margin-left:-120px;background-color:#ccc;-webkit-box-shadow:0 0 30px rgba(0,0,0,.5);box-shadow:0 0 30px rgba(0,0,0,.5)}.datepicker-container .selection-header button{display:block;position:absolute;width:50%;top:5px;border:0;padding:5px 0}.datepicker-container .selection-header button.active{background-color:red}.datepicker-container .selection-header button.date-start{left:5px}.datepicker-container .selection-header button.date-end{right:5px}.datepicker-container .step-container{position:absolute;top:37px;left:5px;right:5px;text-align:center}.calendar-label{display:block;float:left;width:30px;height:30px;overflow:hidden}.calendar-container{height:263px;overflow:hidden;position:absolute;background-color:#dedede;top:25px}.calendar-container .calendar-nav-btn{position:absolute;display:block;width:20px;height:20px;top:15px}.calendar-container .calendar-nav-btn:after{position:absolute;top:0;left:0;right:0;bottom:0;text-align:center;font-size:14px}.calendar-container .calendar-nav-btn.prev{left:15px}.calendar-container .calendar-nav-btn.prev:after{content:"<"}.calendar-container .calendar-nav-btn.next{right:15px}.calendar-container .calendar-nav-btn.next:after{content:">"}.calendar-months-container{width:4200px;height:240px}.calendar-month{width:210px;height:240px;margin:10px;display:inline-block;background-color:#ebebeb}.calendar-month--invisible{display:none}.calendar-month__header{font-weight:700;font-size:1.2rem;text-align:center;padding:4px;background-color:#787878}.calendar-month__days-header{font-weight:400;font-size:1rem;text-align:center;background-color:#929191}.calendar-month__weekday{font-size:10px;text-align:center;line-height:30px}.calendar-day,.calendar-month__weekday{position:relative;display:block;float:left;width:30px;height:30px;overflow:hidden}.calendar-day__active-day{position:absolute;top:0;left:0;bottom:0;width:100%;border:1px solid #ababab;background-color:#c5c4c4;font-size:10px;cursor:pointer;outline:none}.calendar-day__active-day.day-in-range{background-color:rgba(255,153,0,.5);border:1px solid #e68a00}.calendar-day__active-day.day-selected{background-color:#f90;border:1px solid #e68a00}.calendar-day__active-day.day-in-range{background-color:#ffc266;border:1px solid #f90}.calendar-day__inactive-day{position:absolute;top:0;left:0;bottom:0;width:100%;border:1px solid transparent;background-color:transparent;font-size:10px;cursor:pointer;text-align:center;line-height:30px;cursor:not-allowed;opacity:.6}
+html,
+body {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+.date-pickers-container {
+  position: relative;
+  border: 1px solid #ccc;
+}
+
+.date-pickers-container .date-input-field-container {
+  display: inline-block;
+  width: 48%;
+}
+
+.date-pickers-container .date-input-field-container .date-input {
+  padding: 5px;
+  text-align: center;
+  background-color: rgba(255, 153, 0, 0);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.date-pickers-container .date-input-field-container .date-input.current-date-input {
+  background-color: #f90;
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.date-pickers-container .date-input-field-container .date-input.date-input-end {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 48%;
+}
+
+.date-pickers-container:after {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  content: '>';
+  margin-top: -10px;
+  margin-left: -10px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.datepicker-underlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.datepicker-container {
+  position: fixed;
+  width: 240px;
+  height: 325px;
+  top: 50%;
+  left: 50%;
+  margin-top: -160px;
+  margin-left: -120px;
+  background-color: #ccc;
+  -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.datepicker-container .selection-header button {
+  display: block;
+  position: absolute;
+  width: 50%;
+  top: 5px;
+  border: 0;
+  padding: 5px 0;
+}
+
+.datepicker-container .selection-header button.active {
+  background-color: #f00;
+}
+
+.datepicker-container .selection-header button.date-start {
+  left: 5px;
+}
+
+.datepicker-container .selection-header button.date-end {
+  right: 5px;
+}
+
+.datepicker-container .step-container {
+  position: absolute;
+  top: 37px;
+  left: 5px;
+  right: 5px;
+  text-align: center;
+}
+
+.calendar-label {
+  display: block;
+  float: left;
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+}
+
+.calendar-container {
+  height: 263px;
+  overflow: hidden;
+  position: absolute;
+  background-color: #dedede;
+  top: 25px;
+}
+
+.calendar-container .calendar-nav-btn {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 20px;
+  top: 15px;
+}
+
+.calendar-container .calendar-nav-btn:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  font-size: 14px;
+}
+
+.calendar-container .calendar-nav-btn.prev {
+  left: 15px;
+}
+
+.calendar-container .calendar-nav-btn.prev:after {
+  content: '<';
+}
+
+.calendar-container .calendar-nav-btn.next {
+  right: 15px;
+}
+
+.calendar-container .calendar-nav-btn.next:after {
+  content: '>';
+}
+
+.calendar-months-container {
+  width: 4200px;
+  height: 240px;
+}
+
+.calendar-month {
+  width: 210px;
+  height: 240px;
+  margin: 10px;
+  display: inline-block;
+  background-color: #ebebeb;
+}
+
+.calendar-month--invisible {
+  display: none;
+}
+
+.calendar-month__header {
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 4px;
+  background-color: #787878;
+}
+
+.calendar-month__days-header {
+  font-weight: 400;
+  font-size: 1rem;
+  text-align: center;
+  background-color: #929191;
+}
+
+.calendar-month__weekday {
+  position: relative;
+  display: block;
+  float: left;
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+  font-size: 10px;
+  text-align: center;
+  line-height: 30px;
+}
+
+.calendar-day {
+  position: relative;
+  display: block;
+  float: left;
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+}
+
+.calendar-day__active-day {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  border: 1px solid #ababab;
+  background-color: #c5c4c4;
+  font-size: 10px;
+  cursor: pointer;
+  outline: none;
+}
+
+.calendar-day__active-day.day-in-range {
+  background-color: rgba(255, 153, 0, 0.5);
+  border: 1px solid #e68a00;
+}
+
+.calendar-day__active-day.day-selected {
+  background-color: #f90;
+  border: 1px solid #e68a00;
+}
+
+.calendar-day__active-day.day-in-range {
+  background-color: #ffc266;
+  border: 1px solid #ff9900;
+}
+
+.calendar-day__inactive-day {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  border: 1px solid transparent;
+  background-color: transparent;
+  font-size: 10px;
+  cursor: pointer;
+  text-align: center;
+  line-height: 30px;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+

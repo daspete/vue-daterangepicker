@@ -1,8 +1,8 @@
 <template>
     <div class="datepicker-container">
         <div class="selection-header">
-            <button v-on:click="setCurrentType('start')" :class="`date-start ${ selection.current == 'start' ? 'active' : '' }`">Check-In</button>
-            <button v-on:click="setCurrentType('end')" :class="`date-end ${ selection.current == 'end' ? 'active' : '' }`">Check-Out</button>
+            <button type="button" v-on:click="setCurrentType('start')" :class="`date-start ${ selection.current == 'start' ? 'active' : '' }`">Check-In</button>
+            <button type="button" v-on:click="setCurrentType('end')" :class="`date-end ${ selection.current == 'end' ? 'active' : '' }`">Check-Out</button>
         </div>
 
         <div :class="`step-container step-container--${selection.current}`">

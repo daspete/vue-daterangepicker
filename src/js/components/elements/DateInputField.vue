@@ -1,7 +1,7 @@
 <template>
     <div class="date-input-field-container">
         <div :class="`date-input date-input-${type}${selection.current==type ? ' current-date-input' : ''}`" v-on:click="onClicked">{{ selection[type] == null ? global.placeholders[type] : (selection)[type].format('DD.MM.YYYY') }}</div>
-        <input type="hidden" :value="(selection[type] == null ? dates : selection)[type].format('DD.MM.YYYY')" :name="`date-input-${type}`">
+        <input v-if="selection[type]" type="hidden" :value="(selection[type] == null ? dates : selection)[type].format('DD.MM.YYYY')" :name="`date-input-${type}`">
     </div>
 </template>
 
