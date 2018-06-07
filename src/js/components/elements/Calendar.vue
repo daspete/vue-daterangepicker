@@ -21,7 +21,7 @@
                         </button>
 
                         <div v-if="!isVisible(day)" class="calendar-day__invisible-day"></div>
-                        <div v-if="!isActive(day) && isVisible(day)"class="calendar-day__inactive-day">
+                        <div v-if="!isActive(day) && isVisible(day)" class="calendar-day__inactive-day">
                             {{ day.format('DD') }}
                         </div>
                     </div>
@@ -51,7 +51,8 @@ export default {
         return {
             currentDate: moment(),
             weekdays: moment.weekdaysMin(true),
-            days: []
+            days: [],
+            invalidDays: ''
         }
     },
 
@@ -66,6 +67,7 @@ export default {
     created(){},
 
     mounted(){
+        this.invalidDays = this.dates.invalid.join('|');
         this.checkType(this.selection.current);
         this.generateMonthDays();
     },
@@ -136,6 +138,10 @@ export default {
         isActive(day){
             if(this.selection.current == 'end'){
                 if(day.isBefore(this.selection.start)) return false;
+            }
+
+            if(this.invalidDays.indexOf(day.format('YYYY-MM-DD')) !== -1){
+                return false;
             }
 
             return true;

@@ -36147,7 +36147,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             currentDate: __WEBPACK_IMPORTED_MODULE_0_moment__(),
             weekdays: __WEBPACK_IMPORTED_MODULE_0_moment__["weekdaysMin"](true),
-            days: []
+            days: [],
+            invalidDays: ''
         };
     },
 
@@ -36162,6 +36163,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     created: function created() {},
     mounted: function mounted() {
+        this.invalidDays = this.dates.invalid.join('|');
         this.checkType(this.selection.current);
         this.generateMonthDays();
     },
@@ -36229,6 +36231,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         isActive: function isActive(day) {
             if (this.selection.current == 'end') {
                 if (day.isBefore(this.selection.start)) return false;
+            }
+
+            if (this.invalidDays.indexOf(day.format('YYYY-MM-DD')) !== -1) {
+                return false;
             }
 
             return true;
